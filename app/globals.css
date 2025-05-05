@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark theme (default) */
+  --background: #1b2316;
+  --foreground: #ffffff;
+  --accent: #fff84e;
+  --card: #222c1d;
+  --card-darker: #171f12;
+  --border: #222c1d;
+  --muted: #3a4435;
+  --muted-foreground: #a1a1aa;
+}
+
+.light {
+  /* Light theme - refined colors */
+  --background: #f8faf5;
+  --foreground: #2c3e2d;
+  --accent: #7ea832;
+  --card: #ffffff;
+  --card-darker: #f0f5eb;
+  --border: #e5ede0;
+  --muted: #f1f5f9;
+  --muted-foreground: #5c6b60;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Theme transition */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Additional theme-specific styles */
+.light .plant-card-shadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.light .accent-hover:hover {
+  background-color: rgba(126, 168, 50, 0.1);
+}
+
+.dark .accent-hover:hover {
+  background-color: rgba(255, 248, 78, 0.1);
+}
