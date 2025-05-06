@@ -52,7 +52,7 @@ type Action =
       toastId?: ToasterToast["id"]
     }
 
-interface State {
+YekanBakhface State {
   toasts: ToasterToast[]
 }
 

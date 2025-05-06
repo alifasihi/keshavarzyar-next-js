@@ -89,7 +89,7 @@ export default function ShopPage() {
             <h3 className="font-medium mb-3">دسته‌بندی‌ها</h3>
             <div className="space-y-2">
               {categories.map((cat) => (
-                <label key={cat} className="flex items-center gap-2 cursor-pointer">
+                <label key={cat} className="flex items-center gap-2 cursor-poYekanBakh">
                   <input
                     type="radio"
                     name="category"
@@ -107,7 +107,7 @@ export default function ShopPage() {
             <h3 className="font-medium mb-3">محدوده قیمت</h3>
             <div className="space-y-2">
               {priceRanges.map((range) => (
-                <label key={range.value} className="flex items-center gap-2 cursor-pointer">
+                <label key={range.value} className="flex items-center gap-2 cursor-poYekanBakh">
                   <input
                     type="radio"
                     name="priceRange"

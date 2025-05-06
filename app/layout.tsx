@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import localFont from 'next/font/local'
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -9,7 +9,21 @@ import { SearchProvider } from "@/context/search-context"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/context/theme-context"
 
-const inter = Inter({ subsets: ["latin"] })
+const YekanBakh = localFont({
+  src: [
+    {
+      path: '../public/fonts/woff/YekanBakhNoEn-Regular.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/woff/YekanBakhNoEn-Bold.woff',
+      weight: '700',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-yekanbakh'
+})
 
 export const metadata: Metadata = {
   title: "Breath Natural - Indoor Plants Shop",
@@ -24,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={YekanBakh.className}>
         <SearchProvider>
           <CartProvider>
             <ThemeProvider>
