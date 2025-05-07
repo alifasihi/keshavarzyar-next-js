@@ -26,7 +26,17 @@ type CartContextType = {
   totalPrice: number
 }
 
-const CartContext = createContext<CartContextType | undefined>(undefined)
+const defaultContext: CartContextType = {
+  cart: [],
+  addToCart: () => {},
+  removeFromCart: () => {},
+  updateQuantity: () => {},
+  clearCart: () => {},
+  totalItems: 0,
+  totalPrice: 0
+}
+
+const CartContext = createContext<CartContextType>(defaultContext)
 
 const CART_STORAGE_KEY = "plant-shop-cart"
 
@@ -109,11 +119,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
     totalPrice
   }
 
-  // Return a loading state during SSR
-  if (typeof window === 'undefined') {
-    return <>{children}</>
-  }
-
   return (
     <CartContext.Provider value={value}>
       {children}
@@ -122,9 +127,5 @@ export function CartProvider({ children }: { children: ReactNode }) {
 }
 
 export function useCart() {
-  const context = useContext(CartContext)
-  if (context === undefined) {
-    throw new Error("useCart must be used within a CartProvider")
-  }
-  return context
+  return useContext(CartContext)
 }
