@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import dynamic from 'next/dynamic'
 
 export type Plant = {
   id: number
@@ -26,21 +27,11 @@ type CartContextType = {
   totalPrice: number
 }
 
-const defaultContext: CartContextType = {
-  cart: [],
-  addToCart: () => {},
-  removeFromCart: () => {},
-  updateQuantity: () => {},
-  clearCart: () => {},
-  totalItems: 0,
-  totalPrice: 0
-}
-
-const CartContext = createContext<CartContextType>(defaultContext)
+const CartContext = createContext<CartContextType | undefined>(undefined)
 
 const CART_STORAGE_KEY = "plant-shop-cart"
 
-export function CartProvider({ children }: { children: ReactNode }) {
+function CartProviderComponent({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([])
   const [mounted, setMounted] = useState(false)
 
@@ -126,6 +117,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
   )
 }
 
+// Export a dynamically imported version of the CartProvider
+export const CartProvider = dynamic(() => Promise.resolve(CartProviderComponent), {
+  ssr: false
+})
+
 export function useCart() {
-  return useContext(CartContext)
+  const context = useContext(CartContext)
+  if (context === undefined) {
+    throw new Error("useCart must be used within a CartProvider")
+  }
+  return context
 }

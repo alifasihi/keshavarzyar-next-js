@@ -26,9 +26,9 @@ const YekanBakh = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "Breath Natural - Indoor Plants Shop",
-  description: "Find the perfect indoor plants for your home",
-  generator: 'v0.dev'
+  title: "نفس طبیعی - فروشگاه گیاهان آپارتمانی",
+  description: "گیاهان آپارتمانی مناسب برای خانه‌تان را پیدا کنید",
+  generator: 'https://alifasihi.vercel.app'
 }
 
 export default function RootLayout({
