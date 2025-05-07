@@ -13,35 +13,53 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark")
+  const [mounted, setMounted] = useState(false)
 
   // Initialize theme from localStorage or system preference
   useEffect(() => {
+    setMounted(true)
     const savedTheme = localStorage.getItem("theme") as Theme | null
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
 
     if (savedTheme) {
       setTheme(savedTheme)
-    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      setTheme("light")
+    } else {
+      setTheme(systemTheme)
     }
   }, [])
 
   // Update document when theme changes
   useEffect(() => {
-    const root = document.documentElement
+    if (!mounted) return
 
-    if (theme === "light") {
-      root.classList.add("light")
-      root.classList.remove("dark")
-    } else {
-      root.classList.add("dark")
-      root.classList.remove("light")
+    const root = document.documentElement
+    root.classList.remove("light", "dark")
+    root.classList.add(theme)
+    localStorage.setItem("theme", theme)
+  }, [theme, mounted])
+
+  // Listen for system theme changes
+  useEffect(() => {
+    if (!mounted) return
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
+    const handleChange = (e: MediaQueryListEvent) => {
+      if (!localStorage.getItem("theme")) {
+        setTheme(e.matches ? "dark" : "light")
+      }
     }
 
-    localStorage.setItem("theme", theme)
-  }, [theme])
+    mediaQuery.addEventListener("change", handleChange)
+    return () => mediaQuery.removeEventListener("change", handleChange)
+  }, [mounted])
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"))
+  }
+
+  // Prevent flash of wrong theme
+  if (!mounted) {
+    return <>{children}</>
   }
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>

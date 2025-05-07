@@ -1,8 +1,18 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Star } from "lucide-react"
 import PlantCard from "@/components/plant-card"
 import { plants } from "@/lib/data"
+import mainPic from "/public/image/main-pic.svg"
+import pic1 from "/public/image/pic1.svg"
+import pic2 from "/public/image/pic2.svg"
+import pic3 from "/public/image/pic3.svg"
+import pic4 from "/public/image/pic4.svg"
+import pic5 from "/public/image/pic5.svg"
+import pic6 from "/public/image/pic6.svg"
+import RandomUser from "@/components/ui/random-user"
 
 export default function Home() {
   // Featured plants
@@ -34,20 +44,16 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-gray-500 border-2 border-[#1b2316]"></div>
-                <div className="w-8 h-8 rounded-full bg-gray-600 border-2 border-[#1b2316]"></div>
-                <div className="w-8 h-8 rounded-full bg-gray-700 border-2 border-[#1b2316]"></div>
-              </div>
+              <RandomUser />
               <div>
                 <p className="text-sm font-medium">۲.۵ هزار+ نفر</p>
                 <p className="text-xs text-gray-400">مشتریان راضی</p>
               </div>
             </div>
           </div>
-          <div className="relative h-[400px] rounded-2xl overflow-hidden">
+          <div className="relative h-[600px] rounded-2xl overflow-hidden">
             <Image
-              src="/placeholder.svg?height=400&width=600"
+              src={mainPic}
               alt="گیاهان آپارتمانی"
               fill
               className="object-cover"
@@ -97,7 +103,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="relative h-[300px] w-full">
               <Image
-                src="/placeholder.svg?height=300&width=300"
+                src={pic5}
                 alt="گیاه تزئینی بزرگ"
                 fill
                 className="object-contain"

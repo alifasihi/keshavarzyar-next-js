@@ -2,7 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import localFont from 'next/font/local'
 import "./globals.css"
-import Header from "@/components/header"
+import ClientHeader from "@/components/client-header"
 import Footer from "@/components/footer"
 import { CartProvider } from "@/context/cart-context"
 import { SearchProvider } from "@/context/search-context"
@@ -28,7 +28,7 @@ const YekanBakh = localFont({
 export const metadata: Metadata = {
   title: "Breath Natural - Indoor Plants Shop",
   description: "Find the perfect indoor plants for your home",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -39,19 +39,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={YekanBakh.className}>
-        <SearchProvider>
-          <CartProvider>
-            <ThemeProvider>
+        <CartProvider>
+          <ThemeProvider>
+            <SearchProvider>
               <div className="flex flex-col min-h-screen theme-transition">
-                <Header />
-                <Suspense fallback={`Loading...`}>
-                  <main className="flex-1">{children}</main>
+                <ClientHeader />
+                <Suspense fallback={<div className="flex-1 flex items-center justify-center">Loading...</div>}>
+                  <main className="flex-1 container mx-auto px-4 sm:px-6 py-8">{children}</main>
                 </Suspense>
                 <Footer />
               </div>
-            </ThemeProvider>
-          </CartProvider>
-        </SearchProvider>
+            </SearchProvider>
+          </ThemeProvider>
+        </CartProvider>
       </body>
     </html>
   )
