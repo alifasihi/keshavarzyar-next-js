@@ -5,12 +5,14 @@ import Image from "next/image"
 import { Star, ShoppingCart } from "lucide-react"
 import Link from "next/link"
 import { type Plant, useCart } from "@/context/cart-context"
-import pic1 from "/public/image/pic1.svg"
-import pic2 from "/public/image/pic2.svg"
-import pic3 from "/public/image/pic3.svg"
-import pic4 from "/public/image/pic4.svg"
-import pic5 from "/public/image/pic5.svg"
-import pic6 from "/public/image/pic6.svg"
+import EpipremnumAureum from "/public/image/Epipremnum-aureum.svg"
+import SenecioRowleyanus from "/public/image/Senecio-rowleyanus.webp"
+import Spathiphyllum from "/public/image/Spathiphyllum.webp"
+import ZamioculcasZamiifolia from "/public/image/Zamioculcas-zamiifolia.png"
+import Aspidistra from "/public/image/Aspidistra.svg"
+import Ficuslyrata from "/public/image/Ficus-lyrata.svg"
+import Calathea from "/public/image/Calathea.webp"
+import ZebraCactus from "/public/image/ZebraCactus.svg"
 
 type PlantCardProps = {
   plant: Plant
@@ -18,7 +20,7 @@ type PlantCardProps = {
   index?: number
 }
 
-const images = [pic1, pic2, pic3, pic4, pic5, pic6]
+const images = [EpipremnumAureum, SenecioRowleyanus, Spathiphyllum, ZamioculcasZamiifolia,  Aspidistra,Calathea,Ficuslyrata,ZebraCactus]
 
 export default function PlantCard({ plant, size = "medium", index = 0 }: PlantCardProps) {
   const { addToCart } = useCart()

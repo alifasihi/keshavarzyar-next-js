@@ -6,12 +6,7 @@ import { Star } from "lucide-react"
 import PlantCard from "@/components/plant-card"
 import { plants } from "@/lib/data"
 import mainPic from "/public/image/main-pic.svg"
-import pic1 from "/public/image/pic1.svg"
-import pic2 from "/public/image/pic2.svg"
-import pic3 from "/public/image/pic3.svg"
-import pic4 from "/public/image/pic4.svg"
-import pic5 from "/public/image/pic5.svg"
-import pic6 from "/public/image/pic6.svg"
+import EpipremnumAureum from "/public/image/Epipremnum-aureum.svg"
 import RandomUser from "@/components/ui/random-user"
 
 export default function Home() {
@@ -103,7 +98,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="relative h-[300px] w-full">
               <Image
-                src={pic5}
+                src={EpipremnumAureum}
                 alt="گیاه تزئینی بزرگ"
                 fill
                 className="object-contain"
