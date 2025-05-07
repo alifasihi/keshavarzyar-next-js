@@ -99,15 +99,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0)
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0)
 
-  // Prevent flash of wrong cart state
-  if (!mounted) {
-    return <>{children}</>
+  const value = {
+    cart,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    clearCart,
+    totalItems,
+    totalPrice
   }
 
   return (
-    <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, totalItems, totalPrice }}
-    >
+    <CartContext.Provider value={value}>
       {children}
     </CartContext.Provider>
   )
