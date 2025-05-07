@@ -14,10 +14,10 @@ export default function ShopPage() {
   const categories = ["all", "indoor", "tropical", "succulent", "flowering", "hanging"]
   const priceRanges = [
     { label: "همه قیمت‌ها", value: "all" },
-    { label: "زیر ۸۰۰ ریال", value: "under-800" },
-    { label: "۸۰۰ تا ۱۲۰۰ ریال", value: "800-1200" },
-    { label: "۱۲۰۰ تا ۱۶۰۰ ریال", value: "1200-1600" },
-    { label: "بالای ۱۶۰۰ ریال", value: "over-1600" },
+    { label: "زیر ۸,۰۰۰,۰۰۰ ریال", value: "under-8,000,000" },
+    { label: "۸,۰۰۰,۰۰۰ تا ۱۲,۰۰۰,۰۰۰ ریال", value: "8,000,000-12,000,000" },
+    { label: "۱۲,۰۰۰,۰۰۰ تا ۱۶,۰۰۰,۰۰۰ ریال", value: "12,000,000-16,000,000" },
+    { label: "بالای ۱۶,۰۰۰,۰۰۰ ریال", value: "over-16,000,000" },
   ]
 
   const filteredPlants = plants.filter((plant) => {
@@ -28,13 +28,14 @@ export default function ShopPage() {
 
     // Filter by price range
     if (priceRange !== "all") {
-      if (priceRange === "under-800" && plant.price >= 800) {
+      const price = Number(plant.price)
+      if (priceRange === "under-8,000,000" && price >= 8000000) {
         return false
-      } else if (priceRange === "800-1200" && (plant.price < 800 || plant.price > 1200)) {
+      } else if (priceRange === "8,000,000-12,000,000" && (price < 8000000 || price > 12000000)) {
         return false
-      } else if (priceRange === "1200-1600" && (plant.price < 1200 || plant.price > 1600)) {
+      } else if (priceRange === "12,000,000-16,000,000" && (price < 12000000 || price > 16000000)) {
         return false
-      } else if (priceRange === "over-1600" && plant.price <= 1600) {
+      } else if (priceRange === "over-16,000,000" && price <= 16000000) {
         return false
       }
     }

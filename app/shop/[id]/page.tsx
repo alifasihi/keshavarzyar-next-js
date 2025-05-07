@@ -83,7 +83,7 @@ export default function PlantDetailPage({ params }: { params: { id: string } }) 
             <span className="text-gray-400">({plant.rating} امتیاز)</span>
           </div>
 
-          <p className="text-2xl font-bold">Rs. {plant.price}</p>
+          <p className="text-2xl font-bold">ریال {plant.price}</p>
 
           <div className="border-t border-[#222c1d] pt-4">
             <p className="text-gray-300">{plant.description}</p>

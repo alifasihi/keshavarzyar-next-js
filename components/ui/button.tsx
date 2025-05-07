@@ -33,7 +33,7 @@ const buttonVariants = cva(
   }
 )
 
-export YekanBakhface ButtonProps
+export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean

@@ -3,7 +3,7 @@ export const plants = [
     id: 1,
     name: "گیاه زامیفولیا",
     description: "برگ‌های براق و سبز تیره روی ساقه‌های ضخیم. بسیار مقاوم به خشکی.",
-    price: 1300,
+    price: 13000000, // Converted to number
     image: "/image/Zamioculcas-zamiifolia.png",
     rating: 4.5,
     category: "گیاهان آپارتمانی",
@@ -12,7 +12,7 @@ export const plants = [
     id: 2,
     name: "فیکوس برگ ویولونی",
     description: "گیاه محبوب با برگ‌های بزرگ به شکل ویولون. یک عنصر چشمگیر در دکوراسیون.",
-    price: 2000,
+    price: 20000000, // Converted to number
     image: "/image/Ficus-lyrata.svg",
     rating: 4.9,
     category: "گیاهان آپارتمانی",
@@ -21,7 +21,7 @@ export const plants = [
     id: 3,
     name: "کالاتیا",
     description: "برگ‌های طرح‌دار که در طول روز حرکت می‌کنند. جذابیت بصری به هر فضا اضافه می‌کند.",
-    price: 1400,
+    price: 14000000, // Converted to number
     image: "/image/Calathea.webp",
     rating: 4.3,
     category: "گیاهان گرمسیری",
@@ -30,7 +30,7 @@ export const plants = [
     id: 4,
     name: "رشته مروارید",
     description: "گیاه گوشتی با برگ‌های مروارید مانند آبشاری. مناسب برای گلدان‌های آویز.",
-    price: 900,
+    price: 9000000, // Converted to number
     image: "/image/Senecio-rowleyanus.webp",
     rating: 4.4,
     category: "گیاهان گوشتی",
@@ -39,7 +39,7 @@ export const plants = [
     id: 5,
     name: "کاکتوس",
     description: "گیاه بیابانی کم‌نیاز با اشکال منحصر به فرد. مناسب برای مکان‌های آفتابی.",
-    price: 600,
+    price: 6000000, // Converted to number
     image: "/image/Cactus.svg",
     rating: 4.2,
     category: "گیاهان گوشتی",
@@ -48,7 +48,7 @@ export const plants = [
     id: 6,
     name: "اسپاتی فیلوم",
     description: "گیاه ظریف با گل‌های سفید. در نور کم رشد می‌کند و به تصفیه هوا کمک می‌کند.",
-    price: 1100,
+    price: 11000000, // Converted to number
     image: "/image/Spathiphyllum.webp",
     rating: 4.4,
     category: "گیاهان گلدار",
@@ -57,7 +57,7 @@ export const plants = [
     id: 7,
     name: "پوتوس",
     description: "گیاه رونده با برگ‌های قلبی شکل. مناسب برای سبدهای آویز.",
-    price: 750,
+    price: 75000000, // Converted to number
     image: "/image/Epipremnum-aureum.svg",
     rating: 4.2,
     category: "گیاهان آویز",
@@ -66,7 +66,7 @@ export const plants = [
     id: 8,
     name: "زامیفولیا",
     description: "برگ‌های براق و سبز تیره روی ساقه‌های ضخیم. بسیار مقاوم به خشکی.",
-    price: 1300,
+    price: 13000000, // Converted to number
     image: "/image/Zamioculcas-zamiifolia.png",
     rating: 4.5,
     category: "گیاهان آپارتمانی",
@@ -75,7 +75,7 @@ export const plants = [
     id: 9,
     name: "فیکوس برگ ویولونی",
     description: "گیاه محبوب با برگ‌های بزرگ به شکل ویولون. یک عنصر چشمگیر در دکوراسیون.",
-    price: 2000,
+    price: 20000000, // Converted to number
     image: "/image/Ficus-lyrata.svg",
     rating: 4.9,
     category: "گیاهان آپارتمانی",
@@ -84,7 +84,7 @@ export const plants = [
     id: 10,
     name: "کالاتیا",
     description: "برگ‌های طرح‌دار که در طول روز حرکت می‌کنند. جذابیت بصری به هر فضا اضافه می‌کند.",
-    price: 1400,
+    price: 14000000, // Converted to number
     image: "/image/Calathea.webp",
     rating: 4.3,
     category: "گیاهان گرمسیری",
@@ -93,7 +93,7 @@ export const plants = [
     id: 11,
     name: "رشته مروارید",
     description: "گیاه گوشتی با برگ‌های مروارید مانند آبشاری. مناسب برای گلدان‌های آویز.",
-    price: 900,
+    price: 9000000, // Converted to number
     image: "/image/Senecio-rowleyanus.webp",
     rating: 4.4,
     category: "گیاهان گوشتی",
@@ -102,7 +102,7 @@ export const plants = [
     id: 12,
     name: "کاکتوس",
     description: "گیاه بیابانی کم‌نیاز با اشکال منحصر به فرد. مناسب برای مکان‌های آفتابی.",
-    price: 600,
+    price: 6000000, // Converted to number
     image: "/image/Cactus.svg",
     rating: 4.2,
     category: "گیاهان گوشتی",

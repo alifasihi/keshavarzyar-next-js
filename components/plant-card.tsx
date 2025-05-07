@@ -72,7 +72,7 @@ export default function PlantCard({ plant, size = "medium", index = 0 }: PlantCa
             <p className="text-xs text-[var(--muted-foreground)] line-clamp-2 mt-1">{plant.description}</p>
           </div>
           <div className="flex justify-between items-center mt-2">
-            <p className="font-bold text-sm">Rs. {plant.price.toLocaleString()}</p>
+            <p className="font-bold text-sm">ریال {plant.price.toLocaleString()}</p>
             <div className="flex items-center gap-1">
               <Star className="w-3 h-3 fill-[var(--accent)] text-[var(--accent)]" />
               <span className="text-xs">{plant.rating.toFixed(1)}</span>
@@ -110,7 +110,7 @@ export default function PlantCard({ plant, size = "medium", index = 0 }: PlantCa
               <h3 className="font-medium text-lg">{plant.name}</h3>
               <p className="text-sm text-[var(--muted-foreground)] line-clamp-3">{plant.description}</p>
               <div className="flex justify-between items-center">
-                <p className="font-bold text-lg">Rs. {plant.price.toLocaleString()}</p>
+                <p className="font-bold text-lg">ریال {plant.price.toLocaleString()}</p>
                 <div className="flex items-center gap-1">
                   <Star className="w-4 h-4 fill-[var(--accent)] text-[var(--accent)]" />
                   <span className="text-sm">{plant.rating.toFixed(1)}</span>
@@ -156,7 +156,7 @@ export default function PlantCard({ plant, size = "medium", index = 0 }: PlantCa
           <p className="text-sm text-[var(--muted-foreground)] line-clamp-2 mt-1">{plant.description}</p>
         </div>
         <div className="flex justify-between items-center mt-2">
-          <p className="font-bold text-base">Rs. {plant.price.toLocaleString()}</p>
+          <p className="font-bold text-base">ریال {plant.price.toLocaleString()}</p>
           <div className="flex items-center gap-1">
             <Star className="w-4 h-4 fill-[var(--accent)] text-[var(--accent)]" />
             <span className="text-sm">{plant.rating.toFixed(1)}</span>

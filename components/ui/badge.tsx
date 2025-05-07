@@ -23,7 +23,7 @@ const badgeVariants = cva(
   }
 )
 
-export YekanBakhface BadgeProps
+export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}
 

@@ -8,6 +8,8 @@ import { CartProvider } from "@/context/cart-context"
 import { SearchProvider } from "@/context/search-context"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/context/theme-context"
+import logo from "/public/logo.png";
+
 
 const YekanBakh = localFont({
   src: [
@@ -28,8 +30,38 @@ const YekanBakh = localFont({
 export const metadata: Metadata = {
   title: "نفس طبیعی - فروشگاه گیاهان آپارتمانی",
   description: "گیاهان آپارتمانی مناسب برای خانه‌تان را پیدا کنید",
-  generator: 'https://alifasihi.vercel.app'
+  generator: 'https://alifasihi.vercel.app',
+  icons: {
+    icon: [
+      { url: "/logo.png", type: "image/x-icon" },
+      { url: "/logo.png", type: "image/png+xml" },
+    ],
+  },
+  openGraph: {
+    title: "نفس طبیعی - فروشگاه گیاهان آپارتمانی",
+    description: "گیاهان آپارتمانی مناسب برای خانه‌تان را پیدا کنید",
+    url: 'https://alifasihi.vercel.app',
+    siteName: 'نفس طبیعی',
+    images: [
+      {
+        url: "/logo.png", // Direct string path
+        width: 1200,
+        height: 630,
+        alt: 'نفس طبیعی - گیاهان آپارتمانی',
+      },
+    ],
+    locale: 'fa_IR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "نفس طبیعی - فروشگاه گیاهان آپارتمانی",
+    description: "گیاهان آپارتمانی مناسب برای خانه‌تان را پیدا کنید",
+    images: ['/og-image.jpg'],
+  },
 }
+
+
 
 export default function RootLayout({
   children,

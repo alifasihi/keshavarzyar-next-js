@@ -135,7 +135,7 @@ let memoryState: State = { toasts: [] }
 
 function dispatch(action: Action) {
   memoryState = reducer(memoryState, action)
-  listeners.forEach((listener) => {
+  listeneریالforEach((listener) => {
     listener(memoryState)
   })
 }
@@ -175,11 +175,11 @@ function useToast() {
   const [state, setState] = React.useState<State>(memoryState)
 
   React.useEffect(() => {
-    listeners.push(setState)
+    listeneریالpush(setState)
     return () => {
-      const index = listeners.indexOf(setState)
+      const index = listeneریالindexOf(setState)
       if (index > -1) {
-        listeners.splice(index, 1)
+        listeneریالsplice(index, 1)
       }
     }
   }, [state])

@@ -1,8 +1,9 @@
 "use client"
 
 import type React from "react"
-
+import logo from "/public/logo.png"
 import { ShoppingCart, Search, Menu, X } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState, useEffect } from "react"
@@ -10,6 +11,7 @@ import { useCart } from "@/context/cart-context"
 import { useSearch } from "@/context/search-context"
 import CartSidebar from "./cart-sidebar"
 import ThemeToggle from "./theme-toggle"
+
 
 export default function Header() {
   const pathname = usePathname()
@@ -55,10 +57,7 @@ export default function Header() {
         <nav className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-[#fff84e] rounded-full flex items-center justify-center">
-                <span className="text-[#1b2316] font-bold">P</span>
-              </div>
-              <span className="font-bold text-lg hidden sm:inline">Plantio.</span>
+                <Image src={logo} alt="نفس طبیعی" className="w-[32px] " />
             </Link>
           </div>
 
