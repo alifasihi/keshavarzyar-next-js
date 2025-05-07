@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Facebook, Instagram, Linkedin, Twitter, ArrowRight, Mail, MapPin, Phone } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -17,13 +18,13 @@ export default function Footer() {
             </p>
             <div className="flex gap-2">
               <button className="w-8 h-8 rounded-full bg-[var(--card)] flex items-center justify-center hover:bg-[var(--accent)] transition-colors">
-                <span className="text-xs">FB</span>
+                <Mail className="h-5 w-5" />
               </button>
               <button className="w-8 h-8 rounded-full bg-[var(--card)] flex items-center justify-center hover:bg-[var(--accent)] transition-colors">
-                <span className="text-xs">IG</span>
+              <Instagram className="h-5 w-5" />
               </button>
-              <button className="w-8 h-8 rounded-full bg-[var(--card)] flex items-center justify-center hover:bg-[var(--accent)] transition-colors">
-                <span className="text-xs">TW</span>
+              <button formAction={""} className="w-8 h-8 rounded-full bg-[var(--card)] flex items-center justify-center hover:bg-[var(--accent)] transition-colors">
+              <Twitter className="h-5 w-5" />
               </button>
             </div>
           </div>
