@@ -109,6 +109,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
     totalPrice
   }
 
+  // Return a loading state during SSR
+  if (typeof window === 'undefined') {
+    return <>{children}</>
+  }
+
   return (
     <CartContext.Provider value={value}>
       {children}
