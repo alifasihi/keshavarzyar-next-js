@@ -46,7 +46,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
         </div>
 
         <div className="relative h-[400px] rounded-xl overflow-hidden mb-8">
-          <Image src={blog.image || "/placeholder.svg"} alt={blog.title} fill className="object-cover" />
+          <Image src={`/blogImages/${blog.image}`} alt={blog.title} fill className="object-cover" />
         </div>
 
         <div className="prose prose-invert max-w-none">

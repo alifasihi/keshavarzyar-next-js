@@ -1,8 +1,55 @@
+"use client";
 import Image from "next/image"
 import Link from "next/link"
 import { blogs } from "@/lib/data"
 
-export default function BlogsPage() {
+import blogMainPic from "/public/blogImages/blog-pic-main.jpg"
+import SeasonalPlantcare from "/public/blogImages/Seasonal-plantcare.jpg"
+import PropagationHouseplants from "/public/blogImages/Propagation-houseplants.jpg"
+import houseplantsPic from "/public/blogImages/houseplants.jpg"
+
+import bestplantsPic from "/public/blogImages/bestplants.jpg"
+import { Plant, useCart } from "@/context/cart-context"
+import { useState } from "react"
+
+type BlogCardProps = {
+  plant: Plant
+  size?: "small" | "medium" | "large"
+  index?: number
+}
+
+const images = [SeasonalPlantcare,PropagationHouseplants,houseplantsPic,bestplantsPic]
+
+
+
+export default function BlogsPage({ plant, size = "medium", index = 0 }: BlogCardProps) {
+  const { addToCart } = useCart()
+    const [imageError, setImageError] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
+
+    const handleAddToCart = (e: React.MouseEvent) => {
+      e.preventDefault()
+      e.stopPropagation()
+      addToCart(plant)
+    }
+
+    const handleImageError = () => {
+      setImageError(true)
+      setIsLoading(false)
+    }
+
+    const handleImageLoad = () => {
+      setIsLoading(false)
+    }
+
+    const fallbackImage = images[index % images.length]
+    const imageSrc = imageError ? "/public/blogImages/blog-pic-main.jpg" : (plant?.image || fallbackImage)
+
+
+
+
+
+
   return (
     <div className="container py-8 px-4 sm:px-6">
       <h1 className="text-3xl font-bold mb-8 text-center sm:text-left">وبلاگ گیاهان</h1>
@@ -18,7 +65,7 @@ export default function BlogsPage() {
           </p>
         </div>
         <div className="relative h-[200px] sm:h-[300px] rounded-xl overflow-hidden">
-          <Image src="/placeholder.svg?height=300&width=600" alt="وبلاگ گیاهان" fill className="object-cover" />
+          <Image src={blogMainPic} alt="وبلاگ گیاهان" fill className="object-cover" />
         </div>
       </div>
 
@@ -26,7 +73,7 @@ export default function BlogsPage() {
         {blogs.map((blog) => (
           <div key={blog.id} className="bg-[#222c1d] rounded-xl overflow-hidden">
             <div className="relative h-[150px] sm:h-[200px]">
-              <Image src={blog.image || "/placeholder.svg"} alt={blog.title} fill className="object-cover" />
+              <Image src={blog.image.startsWith('/public') ? blog.image.replace('/public', '') : blog.image || blogMainPic} alt={blog.title} fill className="object-cover" />
             </div>
             <div className="p-4 sm:p-6 space-y-4">
               <div className="flex justify-between items-start">
