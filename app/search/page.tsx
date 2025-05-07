@@ -48,43 +48,45 @@ export default function SearchPage() {
         </div>
       </form>
 
-      {initialQuery ? (
-        <>
-          <p className="mb-6 text-gray-400">
-            {filteredPlants.length} نتیجه برای "{initialQuery}"
-          </p>
+      <div className="text-center">
+        {initialQuery ? (
+          <>
+            <p className="mb-6 text-gray-400">
+              {filteredPlants.length} نتیجه برای "{initialQuery}"
+            </p>
 
-          {filteredPlants.length === 0 ? (
-            <div className="bg-[#222c1d] rounded-xl p-8 text-center">
-              <h3 className="text-xl font-medium mb-2">گیاهی یافت نشد</h3>
-              <p className="text-gray-400 mb-4">لطفاً با کلمات کلیدی دیگر جستجو کنید.</p>
-              <Link
-                href="/shop"
-                className="inline-block bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
-              >
-                مشاهده همه گیاهان
-              </Link>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPlants.map((plant) => (
-                <PlantCard key={plant.id} plant={plant} />
-              ))}
-            </div>
-          )}
-        </>
-      ) : (
-        <div className="bg-[#222c1d] rounded-xl p-8 text-center">
-          <h3 className="text-xl font-medium mb-2">عبارت جستجو را وارد کنید</h3>
-          <p className="text-gray-400 mb-4">جستجو بر اساس نام، توضیحات یا دسته‌بندی گیاهان.</p>
-          <Link
-            href="/shop"
-            className="inline-block bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
-          >
-            مشاهده همه گیاهان
-          </Link>
-        </div>
-      )}
+            {filteredPlants.length === 0 ? (
+              <div className="bg-[#222c1d] rounded-xl p-8 text-center">
+                <h3 className="text-xl font-medium mb-2">گیاهی یافت نشد</h3>
+                <p className="text-gray-400 mb-4">لطفاً با کلمات کلیدی دیگر جستجو کنید.</p>
+                <Link
+                  href="/shop"
+                  className="inline-block bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
+                >
+                  مشاهده همه گیاهان
+                </Link>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredPlants.map((plant) => (
+                  <PlantCard key={plant.id} plant={plant} />
+                ))}
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="bg-[#222c1d] rounded-xl p-8 text-center">
+            <h3 className="text-xl font-medium mb-2">عبارت جستجو را وارد کنید</h3>
+            <p className="text-gray-400 mb-4">جستجو بر اساس نام، توضیحات یا دسته‌بندی گیاهان.</p>
+            <Link
+              href="/shop"
+              className="inline-block bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
+            >
+              مشاهده همه گیاهان
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

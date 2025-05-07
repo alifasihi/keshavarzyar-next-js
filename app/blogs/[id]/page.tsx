@@ -32,61 +32,63 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
         Back to Blogs
       </Link>
 
-      <article className="max-w-3xl mx-auto">
-        <div className="flex items-center gap-2 mb-4">
-          <span className="text-sm text-gray-400">{blog.date}</span>
-          <span className="bg-[#222c1d] text-xs px-3 py-1 rounded-full">{blog.category}</span>
-        </div>
+      <div className="text-center">
+        <article className="max-w-3xl mx-auto">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-sm text-gray-400">{blog.date}</span>
+            <span className="bg-[#222c1d] text-xs px-3 py-1 rounded-full">{blog.category}</span>
+          </div>
 
-        <h1 className="text-3xl font-bold mb-6">{blog.title}</h1>
+          <h1 className="text-3xl font-bold mb-6">{blog.title}</h1>
 
-        <div className="flex items-center gap-2 mb-8">
-          <div className="w-8 h-8 rounded-full bg-gray-600"></div>
-          <span className="text-sm">By {blog.author}</span>
-        </div>
+          <div className="flex items-center gap-2 mb-8">
+            <div className="w-8 h-8 rounded-full bg-gray-600"></div>
+            <span className="text-sm">By {blog.author}</span>
+          </div>
 
-        <div className="relative h-[400px] rounded-xl overflow-hidden mb-8">
-          <Image src={`/blogImages/${blog.image}`} alt={blog.title} fill className="object-cover" />
-        </div>
+          <div className="relative h-[400px] rounded-xl overflow-hidden mb-8">
+            <Image src={blog.image.startsWith('/public') ? blog.image.replace('/public', '') : blog.image || "/placeholder.svg"} alt={blog.title} fill className="object-cover" />
+          </div>
 
-        <div className="prose prose-invert max-w-none">
-          {blog.content.split(". ").map((sentence, index) => {
-            // Check if the sentence contains a number followed by a period (like "1.")
-            if (/^\d+\./.test(sentence.trim())) {
+          <div className="prose prose-invert max-w-none">
+            {blog.content.split(". ").map((sentence, index) => {
+              // Check if the sentence contains a number followed by a period (like "1.")
+              if (/^\d+\./.test(sentence.trim())) {
+                return (
+                  <div key={index} className="flex gap-2 mb-4">
+                    <div className="font-bold">{sentence.trim().split(" ")[0]}</div>
+                    <div className="text-gray-300">{sentence.trim().split(" ").slice(1).join(" ")}.</div>
+                  </div>
+                )
+              }
               return (
-                <div key={index} className="flex gap-2 mb-4">
-                  <div className="font-bold">{sentence.trim().split(" ")[0]}</div>
-                  <div className="text-gray-300">{sentence.trim().split(" ").slice(1).join(" ")}.</div>
-                </div>
+                <p key={index} className="text-gray-300 mb-4">
+                  {sentence.trim()}.
+                </p>
               )
-            }
-            return (
-              <p key={index} className="text-gray-300 mb-4">
-                {sentence.trim()}.
-              </p>
-            )
-          })}
-        </div>
+            })}
+          </div>
 
-        <div className="flex items-center justify-between mt-8 pt-8 border-t border-[#222c1d]">
-          <div className="flex gap-2">
-            <button className="bg-[#222c1d] px-3 py-1 rounded-full text-sm">Plants</button>
-            <button className="bg-[#222c1d] px-3 py-1 rounded-full text-sm">Care</button>
-            <button className="bg-[#222c1d] px-3 py-1 rounded-full text-sm">Tips</button>
+          <div className="flex items-center justify-between mt-8 pt-8 border-t border-[#222c1d]">
+            <div className="flex gap-2">
+              <button className="bg-[#222c1d] px-3 py-1 rounded-full text-sm">Plants</button>
+              <button className="bg-[#222c1d] px-3 py-1 rounded-full text-sm">Care</button>
+              <button className="bg-[#222c1d] px-3 py-1 rounded-full text-sm">Tips</button>
+            </div>
+            <div className="flex gap-2">
+              <button className="w-8 h-8 rounded-full bg-[#222c1d] flex items-center justify-center">
+                <span className="text-xs">FB</span>
+              </button>
+              <button className="w-8 h-8 rounded-full bg-[#222c1d] flex items-center justify-center">
+                <span className="text-xs">TW</span>
+              </button>
+              <button className="w-8 h-8 rounded-full bg-[#222c1d] flex items-center justify-center">
+                <span className="text-xs">IG</span>
+              </button>
+            </div>
           </div>
-          <div className="flex gap-2">
-            <button className="w-8 h-8 rounded-full bg-[#222c1d] flex items-center justify-center">
-              <span className="text-xs">FB</span>
-            </button>
-            <button className="w-8 h-8 rounded-full bg-[#222c1d] flex items-center justify-center">
-              <span className="text-xs">TW</span>
-            </button>
-            <button className="w-8 h-8 rounded-full bg-[#222c1d] flex items-center justify-center">
-              <span className="text-xs">IG</span>
-            </button>
-          </div>
-        </div>
-      </article>
+        </article>
+      </div>
 
       {relatedBlogs.length > 0 && (
         <section className="max-w-3xl mx-auto mt-12">
@@ -95,7 +97,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
             {relatedBlogs.map((blog) => (
               <div key={blog.id} className="bg-[#222c1d] rounded-xl overflow-hidden">
                 <div className="relative h-[160px]">
-                  <Image src={blog.image || "/placeholder.svg"} alt={blog.title} fill className="object-cover" />
+                  <Image src={blog.image.startsWith('/public') ? blog.image.replace('/public', '') : blog.image || "/placeholder.svg"} alt={blog.title} fill className="object-cover" />
                 </div>
                 <div className="p-4 space-y-2">
                   <span className="text-xs text-gray-400">{blog.date}</span>

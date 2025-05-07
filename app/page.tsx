@@ -39,7 +39,9 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex items-center gap-2">
-              <RandomUser />
+              {[...Array(3)].map((_, index) => (
+                <RandomUser key={index} />
+              ))}
               <div>
                 <p className="text-sm font-medium">۲.۵ هزار+ نفر</p>
                 <p className="text-xs text-gray-400">مشتریان راضی</p>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, use } from "react"
 import Image from "next/image"
 import { Star, Minus, Plus, ShoppingCart, Heart, ArrowLeft } from "lucide-react"
 import { plants } from "@/lib/data"
@@ -8,11 +8,12 @@ import { useCart } from "@/context/cart-context"
 import Link from "next/link"
 import PlantCard from "@/components/plant-card"
 
-export default function PlantDetailPage({ params }: { params: { id: string } }) {
+export default function PlantDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const [quantity, setQuantity] = useState(1)
   const { addToCart } = useCart()
 
-  const plantId = Number.parseInt(params.id)
+  const plantId = Number.parseInt(id)
   const plant = plants.find((p) => p.id === plantId)
 
   // Get similar plants (same category)
