@@ -8,6 +8,9 @@ import { useCart } from "@/context/cart-context"
 import Link from "next/link"
 import PlantCard from "@/components/plant-card"
 
+// Update all numbers to Persian digits
+const toPersianDigits = (num: number): string => num.toString().replace(/[0-9]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[d as any]);
+
 export default function PlantDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const [quantity, setQuantity] = useState(1)
@@ -81,10 +84,10 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
                 />
               ))}
             </div>
-            <span className="text-gray-400">({plant.rating} امتیاز)</span>
+            <span className="text-gray-400">({toPersianDigits(plant.rating)} امتیاز)</span>
           </div>
 
-          <p className="text-2xl font-bold">ریال {plant.price}</p>
+          <p className="text-2xl font-bold">ریال {toPersianDigits(plant.price)}</p>
 
           <div className="border-t border-[#222c1d] pt-4">
             <p className="text-gray-300">{plant.description}</p>
@@ -100,7 +103,7 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
                 >
                   <Minus className="w-4 h-4" />
                 </button>
-                <span className="w-12 h-8 flex items-center justify-center bg-[#222c1d]">{quantity}</span>
+                <span className="w-12 h-8 flex items-center justify-center bg-[#222c1d]">{toPersianDigits(quantity)}</span>
                 <button
                   onClick={increaseQuantity}
                   className="w-8 h-8 rounded-r-lg bg-[#171f12] flex items-center justify-center"

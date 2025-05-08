@@ -12,6 +12,27 @@ export default function ShopPage() {
   const [showFilters, setShowFilters] = useState<boolean>(false)
 
   const categories = ["all", "indoor", "tropical", "succulent", "flowering", "hanging"]
+
+  // Update the category labels to Persian
+  const categoriesWithLabels = categories.map((cat) => {
+    switch (cat) {
+      case "all":
+        return { value: cat, label: "همه" }
+      case "indoor":
+        return { value: cat, label: "داخلی" }
+      case "tropical":
+        return { value: cat, label: "گرمسیری" }
+      case "succulent":
+        return { value: cat, label: "آبدار" }
+      case "flowering":
+        return { value: cat, label: "گلدار" }
+      case "hanging":
+        return { value: cat, label: "آویز" }
+      default:
+        return { value: cat, label: cat }
+    }
+  })
+
   const priceRanges = [
     { label: "همه قیمت‌ها", value: "all" },
     { label: "زیر ۸,۰۰۰,۰۰۰ ریال", value: "under-8,000,000" },
@@ -90,16 +111,16 @@ export default function ShopPage() {
             <div className="mb-6">
               <h3 className="font-medium mb-3">دسته‌بندی‌ها</h3>
               <div className="space-y-2">
-                {categories.map((cat) => (
-                  <label key={cat} className="flex items-center gap-2 cursor-poYekanBakh">
+                {categoriesWithLabels.map((cat) => (
+                  <label key={cat.value} className="flex items-center gap-2 cursor-pointer">
                     <input
                       type="radio"
                       name="category"
-                      checked={category === cat}
-                      onChange={() => setCategory(cat)}
+                      checked={category === cat.value}
+                      onChange={() => setCategory(cat.value)}
                       className="accent-[var(--accent)]"
                     />
-                    <span className="capitalize">{cat}</span>
+                    <span className="capitalize">{cat.label}</span>
                   </label>
                 ))}
               </div>
