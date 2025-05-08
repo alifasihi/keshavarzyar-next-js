@@ -24,7 +24,7 @@ export default function RandomUser() {
   if (!user) return null;
 
   return (
-    <div className="flex space-x-2">
+    <div className="flex -space-x-2">
       <div className="w-8 h-8 rounded-full border-2 border-[#1b2316]">
         <img src={user.picture.medium} alt="User" className="rounded-full" />
       </div>
