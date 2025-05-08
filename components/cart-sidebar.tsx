@@ -34,7 +34,7 @@ export default function CartSidebar({ isOpen, onClose }: CartSidebarProps) {
             <Link
               href="/shop"
               onClick={onClose}
-              className="bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity text-sm sm:text-base"
+              className="bg-[#48da4b] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity text-sm sm:text-base"
             >
               ادامه خرید
             </Link>

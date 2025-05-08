@@ -4,6 +4,7 @@ import { useState } from "react"
 import PlantCard from "@/components/plant-card"
 import { plants } from "@/lib/data"
 import { Filter, Search } from "lucide-react"
+import { convertNumberToPersian } from '@/utils/convertNumberToPersian';
 
 export default function ShopPage() {
   const [category, setCategory] = useState<string>("all")
@@ -41,7 +42,10 @@ export default function ShopPage() {
     { label: "بالای ۱۶,۰۰۰,۰۰۰ ریال", value: "over-16,000,000" },
   ]
 
-  const filteredPlants = plants.filter((plant) => {
+  const filteredPlants = plants.map((plant) => ({
+    ...plant,
+    price: Number(plant.price),
+  })).filter((plant) => {
     // Filter by category
     if (category !== "all" && plant.category !== category) {
       return false
@@ -49,7 +53,7 @@ export default function ShopPage() {
 
     // Filter by price range
     if (priceRange !== "all") {
-      const price = Number(plant.price)
+      const price = Number(convertNumberToPersian(plant.price))
       if (priceRange === "under-8,000,000" && price >= 8000000) {
         return false
       } else if (priceRange === "8,000,000-12,000,000" && (price < 8000000 || price > 12000000)) {

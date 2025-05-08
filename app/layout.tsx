@@ -28,7 +28,7 @@ const YekanBakh = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "نفس طبیعی - فروشگاه گیاهان آپارتمانی",
+  title: "کشاورز یار - فروشگاه گیاهان آپارتمانی",
   description: "گیاهان آپارتمانی مناسب برای خانه‌تان را پیدا کنید",
   generator: 'https://alifasihi.vercel.app',
   icons: {
@@ -38,16 +38,16 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "نفس طبیعی - فروشگاه گیاهان آپارتمانی",
+    title: "کشاورز یار - فروشگاه گیاهان آپارتمانی",
     description: "گیاهان آپارتمانی مناسب برای خانه‌تان را پیدا کنید",
     url: 'https://alifasihi.vercel.app',
-    siteName: 'نفس طبیعی',
+    siteName: 'کشاورز یار',
     images: [
       {
         url: "/logo.png", // Direct string path
         width: 1200,
         height: 630,
-        alt: 'نفس طبیعی - گیاهان آپارتمانی',
+        alt: 'کشاورز یار - گیاهان آپارتمانی',
       },
     ],
     locale: 'fa_IR',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "نفس طبیعی - فروشگاه گیاهان آپارتمانی",
+    title: "کشاورز یار - فروشگاه گیاهان آپارتمانی",
     description: "گیاهان آپارتمانی مناسب برای خانه‌تان را پیدا کنید",
     images: ['/og-image.jpg'],
   },

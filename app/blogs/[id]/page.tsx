@@ -14,7 +14,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
         <p className="mb-6">Sorry, we couldn't find the blog post you're looking for.</p>
         <Link
           href="/blogs"
-          className="inline-block bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
+          className="inline-block bg-[#48da4b] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
         >
           Back to Blogs
         </Link>
@@ -102,7 +102,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
                 <div className="p-4 space-y-2">
                   <span className="text-xs text-gray-400">{blog.date}</span>
                   <h3 className="font-bold">{blog.title}</h3>
-                  <Link href={`/blogs/${blog.id}`} className="inline-block text-[#fff84e] text-sm hover:underline">
+                  <Link href={`/blogs/${blog.id}`} className="inline-block text-[#48da4b] text-sm hover:underline">
                     Read More
                   </Link>
                 </div>

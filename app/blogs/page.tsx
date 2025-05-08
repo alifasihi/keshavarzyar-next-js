@@ -53,10 +53,10 @@ export default function BlogsPage({ plant, size = "medium", index = 0 }: BlogCar
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-center sm:text-left">آخرین نکات و الهام‌های گیاهی</h2>
-            <p className="text-gray-300 text-center sm:text-left">
+            <p className="text-gray-500 text-center sm:text-left">
               آخرین روندها در باغبانی داخلی، نکات مراقبت از گیاهان توسط متخصصان و ایده‌های الهام‌بخش برای دگرگونی فضای خود با گیاهان را کشف کنید.
             </p>
-            <p className="text-gray-300 text-center sm:text-left">
+            <p className="text-gray-500 text-center sm:text-left">
               وبلاگ ما به طور منظم با محتوای متخصصان و علاقه‌مندان به گیاهان به‌روزرسانی می‌شود تا در سفر گیاهی شما کمک کند.
             </p>
           </div>
@@ -74,15 +74,15 @@ export default function BlogsPage({ plant, size = "medium", index = 0 }: BlogCar
               <div className="p-4 sm:p-6 space-y-4">
                 <div className="flex justify-between items-start">
                   <span className="text-sm text-gray-400">{blog.date}</span>
-                  <span className="bg-[#171f12] text-xs px-3 py-1 rounded-full">{blog.category}</span>
+                  <span className="bg-[#48da4b] text-xs px-3 py-1 rounded-full">{blog.category}</span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold">{blog.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-[#48da4b]">{blog.title}</h3>
                 <p className="text-gray-300 text-sm sm:text-base">{blog.excerpt}</p>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-400">نویسنده: {blog.author}</span>
                   <Link
                     href={`/blogs/${blog.id}`}
-                    className="inline-block border border-[#fff84e] text-[#fff84e] px-4 py-2 rounded-full font-medium hover:bg-[#fff84e]/10 transition-colors"
+                    className="inline-block border border-[#48da4b] text-[#48da4b] px-4 py-2 rounded-full font-medium hover:bg-[#48da4b]/10 transition-colors"
                   >
                     ادامه مطلب
                   </Link>
@@ -101,11 +101,11 @@ export default function BlogsPage({ plant, size = "medium", index = 0 }: BlogCar
             <input
               type="email"
               placeholder="آدرس ایمیل شما"
-              className="flex-1 bg-[#222c1d] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff84e]"
+              className="flex-1 bg-[#222c1d] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#48da4b]"
             />
             <button
               type="submit"
-              className="bg-[#fff84e] text-[#1b2316] px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity whitespace-nowrap"
+              className="bg-[#48da4b] text-[#1b2316] px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity whitespace-nowrap"
             >
               عضویت
             </button>

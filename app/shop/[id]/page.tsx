@@ -7,9 +7,10 @@ import { plants } from "@/lib/data"
 import { useCart } from "@/context/cart-context"
 import Link from "next/link"
 import PlantCard from "@/components/plant-card"
+import { convertNumberToPersian } from "@/utils/convertNumberToPersian"
 
 // Update all numbers to Persian digits
-const toPersianDigits = (num: number): string => num.toString().replace(/[0-9]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[d as any]);
+const toPersianDigits = (num: number) => num.toString().replace(/[0-9]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[parseInt(d)]);
 
 export default function PlantDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -21,7 +22,10 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
 
   // Get similar plants (same category)
   const similarPlants = plant
-    ? plants.filter((p) => p.category === plant.category && p.id !== plant.id).slice(0, 3)
+    ? plants
+        .filter((p) => p.category === plant.category && p.id !== plant.id)
+        .map((p) => ({ ...p, price: Number(p.price) }))
+        .slice(0, 3)
     : []
 
   if (!plant) {
@@ -31,7 +35,7 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
         <p className="mb-6">متأسفانه گیاه مورد نظر شما یافت نشد.</p>
         <Link
           href="/shop"
-          className="inline-block bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
+          className="inline-block bg-[#48da4b] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
         >
           بازگشت به فروشگاه
         </Link>
@@ -52,7 +56,7 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
   const handleAddToCart = () => {
     // Add the plant to cart with the selected quantity
     for (let i = 0; i < quantity; i++) {
-      addToCart(plant)
+      addToCart({ ...plant, price: Number(plant.price) })
     }
   }
 
@@ -79,7 +83,7 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
                 <Star
                   key={i}
                   className={`w-5 h-5 ${
-                    i < Math.floor(plant.rating) ? "fill-[#fff84e] text-[#fff84e]" : "text-gray-400"
+                    i < Math.floor(plant.rating) ? "fill-[#48da4b] text-[#48da4b]" : "text-gray-400"
                   }`}
                 />
               ))}
@@ -87,10 +91,10 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
             <span className="text-gray-400">({toPersianDigits(plant.rating)} امتیاز)</span>
           </div>
 
-          <p className="text-2xl font-bold">ریال {toPersianDigits(plant.price)}</p>
+          <p className="text-2xl font-bold">ریال {convertNumberToPersian(Number(plant.price))}</p>
 
-          <div className="border-t border-[#222c1d] pt-4">
-            <p className="text-gray-300">{plant.description}</p>
+          <div className="border-t border-[#222c1d] pt-4"></div>
+            <p className="text-gray-500">{plant.description}</p>
           </div>
 
           <div className="border-t border-[#222c1d] pt-4">
@@ -99,14 +103,14 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
               <div className="flex items-center">
                 <button
                   onClick={decreaseQuantity}
-                  className="w-8 h-8 rounded-l-lg bg-[#171f12] flex items-center justify-center"
+                  className="w-8 h-8 rounded-l-lg bg-[#48da4b] flex items-center justify-center"
                 >
                   <Minus className="w-4 h-4" />
                 </button>
-                <span className="w-12 h-8 flex items-center justify-center bg-[#222c1d]">{toPersianDigits(quantity)}</span>
+                <span className="w-12 h-8 flex items-center justify-center bg-[#247a24]">{toPersianDigits(quantity)}</span>
                 <button
                   onClick={increaseQuantity}
-                  className="w-8 h-8 rounded-r-lg bg-[#171f12] flex items-center justify-center"
+                  className="w-8 h-8 rounded-r-lg bg-[#48da4b] flex items-center justify-center"
                 >
                   <Plus className="w-4 h-4" />
                 </button>
@@ -118,12 +122,12 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
           <div className="flex gap-4 pt-4">
             <button
               onClick={handleAddToCart}
-              className="flex-1 bg-[#fff84e] text-[#1b2316] px-4 py-3 rounded-full font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+              className="flex-1 bg-[#48da4b] text-[#1b2316] px-4 py-3 rounded-full font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
             >
               <ShoppingCart className="w-5 h-5" />
               افزودن به سبد خرید
             </button>
-            <button className="w-12 h-12 rounded-full bg-[#222c1d] flex items-center justify-center">
+            <button className="w-12 h-12 rounded-full bg-[#48da4b] flex items-center justify-center">
               <Heart className="w-5 h-5" />
             </button>
           </div>
@@ -145,7 +149,6 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
               <div>
                 <h3 className="font-medium mb-1">آبیاری</h3>
                 <p className="text-gray-400">هفتگی</p>
-              </div>
             </div>
           </div>
         </div>

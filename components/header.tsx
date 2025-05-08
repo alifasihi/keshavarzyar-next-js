@@ -57,7 +57,7 @@ export default function Header() {
         <nav className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-                <Image src={logo} alt="نفس طبیعی" className="w-[32px] " />
+                <Image src={logo} alt="کشاورز یار" className="w-[32px] " />
             </Link>
           </div>
 

@@ -40,7 +40,7 @@ export default function SearchPage() {
             placeholder="جستجوی گیاهان..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-[#222c1d] text-white px-4 py-3 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff84e]"
+            className="w-full bg-[#222c1d] text-white px-4 py-3 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#48da4b]"
           />
           <button type="submit" className="absolute right-3 top-1/2 transform -translate-y-1/2">
             <Search className="w-5 h-5 text-gray-400" />
@@ -61,7 +61,7 @@ export default function SearchPage() {
                 <p className="text-gray-400 mb-4">لطفاً با کلمات کلیدی دیگر جستجو کنید.</p>
                 <Link
                   href="/shop"
-                  className="inline-block bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
+                  className="inline-block bg-[#48da4b] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
                 >
                   مشاهده همه گیاهان
                 </Link>
@@ -80,7 +80,7 @@ export default function SearchPage() {
             <p className="text-gray-400 mb-4">جستجو بر اساس نام، توضیحات یا دسته‌بندی گیاهان.</p>
             <Link
               href="/shop"
-              className="inline-block bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
+              className="inline-block bg-[#48da4b] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
             >
               مشاهده همه گیاهان
             </Link>

@@ -6,7 +6,7 @@
   /* Dark theme (default) */
   --background: #1b2316;
   --foreground: #ffffff;
-  --accent: #fff84e;
+  --accent: #48da4b;
   --card: #222c1d;
   --card-darker: #171f12;
   --border: #222c1d;
@@ -18,7 +18,7 @@
   /* Light theme - refined colors */
   --background: #f8faf5;
   --foreground: #2c3e2d;
-  --accent: #7ea832;
+  --accent: #48da4b;
   --card: #ffffff;
   --card-darker: #f0f5eb;
   --border: #e5ede0;

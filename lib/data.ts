@@ -21,7 +21,7 @@ export const plants = [
     id: 3,
     name: "کالاتیا",
     description: "برگ‌های طرح‌دار که در طول روز حرکت می‌کنند. جذابیت بصری به هر فضا اضافه می‌کند.",
-    price: 14000000, // Converted to number
+    price: "14000000", // Converted to number
     image: "/image/Calathea.webp",
     rating: 4.3,
     category: "گیاهان گرمسیری",

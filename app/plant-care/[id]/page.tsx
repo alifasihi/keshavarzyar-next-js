@@ -14,7 +14,7 @@ export default function CareGuidePage({ params }: { params: { id: string } }) {
         <p className="mb-6">Sorry, we couldn't find the care guide you're looking for.</p>
         <Link
           href="/plant-care"
-          className="inline-block bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
+          className="inline-block bg-[#48da4b] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
         >
           Back to Plant Care
         </Link>
@@ -66,10 +66,10 @@ export default function CareGuidePage({ params }: { params: { id: string } }) {
           <div className="mt-12 bg-[#222c1d] rounded-xl p-6">
             <h3 className="text-xl font-bold mb-4">Was this guide helpful?</h3>
             <div className="flex gap-4">
-              <button className="bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity">
+              <button className="bg-[#48da4b] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity">
                 Yes, it helped!
               </button>
-              <button className="border border-[#fff84e] text-[#fff84e] px-4 py-2 rounded-full font-medium hover:bg-[#fff84e]/10 transition-colors">
+              <button className="border border-[#48da4b] text-[#48da4b] px-4 py-2 rounded-full font-medium hover:bg-[#48da4b]/10 transition-colors">
                 I need more help
               </button>
             </div>

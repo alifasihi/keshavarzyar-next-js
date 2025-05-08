@@ -11,7 +11,7 @@ export default function Footer() {
               <div className="w-8 h-8 bg-[var(--accent)] rounded-full flex items-center justify-center">
                 <span className="text-[var(--background)] font-bold">P</span>
               </div>
-              <span className="font-bold text-lg">Plantio.</span>
+              <span className="font-bold text-lg">کشاورز یار</span>
             </div>
             <p className="text-sm text-[var(--muted-foreground)] mb-4">
               گیاه مناسب خانه خود را پیدا کنید. ما تنوع گسترده‌ای از گیاهان داریم که با سلیقه و بودجه شما سازگار هستند.
@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-[var(--card)] mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-[var(--muted-foreground)]">
-          <p>© ۱۴۰۲ پلانتیو. تمامی حقوق محفوظ است.</p>
+          <p>© ۱۴۰۴ کشاورز یار تمامی حقوق محفوظ است.</p>
         </div>
       </div>
     </footer>

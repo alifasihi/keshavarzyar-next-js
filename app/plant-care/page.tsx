@@ -20,7 +20,7 @@ export default function PlantCarePage() {
             </p>
             <Link
               href="/shop"
-              className="inline-block bg-[#fff84e] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity mt-2"
+              className="inline-block bg-[#48da4b] text-[#1b2316] px-4 py-2 rounded-full font-medium hover:opacity-90 transition-opacity mt-2"
             >
               خرید گیاهان
             </Link>
@@ -63,7 +63,7 @@ export default function PlantCarePage() {
                 <input
                   type="text"
                   id="name"
-                  className="w-full bg-[#222c1d] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff84e]"
+                  className="w-full bg-[#222c1d] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#48da4b]"
                 />
               </div>
               <div>
@@ -73,7 +73,7 @@ export default function PlantCarePage() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full bg-[#222c1d] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff84e]"
+                  className="w-full bg-[#222c1d] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#48da4b]"
                 />
               </div>
             </div>
@@ -84,12 +84,12 @@ export default function PlantCarePage() {
               <textarea
                 id="question"
                 rows={4}
-                className="w-full bg-[#222c1d] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fff84e]"
+                className="w-full bg-[#222c1d] text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#48da4b]"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="bg-[#fff84e] text-[#1b2316] px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
+              className="bg-[#48da4b] text-[#1b2316] px-6 py-2 rounded-full font-medium hover:opacity-90 transition-opacity"
             >
               ارسال سوال
             </button>
