@@ -57,7 +57,7 @@ export default function Header() {
         <nav className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-                <Image src={logo} alt="کشاورز یار" className="w-[32px] " />
+                <Image src={logo} alt="پستاک" className="w-[32px] " />
             </Link>
           </div>
 
@@ -80,12 +80,12 @@ export default function Header() {
               فروشگاه
             </Link>
             <Link
-              href="/plant-care"
+              href="/pistachio-care"
               className={`transition-colors ${
-                isActive("/plant-care") ? "text-[var(--accent)]" : "text-[var(--foreground)] hover:text-[var(--accent)]"
+                isActive("/pistachio-care") ? "text-[var(--accent)]" : "text-[var(--foreground)] hover:text-[var(--accent)]"
               }`}
             >
-              مراقبت از گیاهان
+              مراقبت از مزارع پسته
             </Link>
             <Link
               href="/blogs"
@@ -149,15 +149,15 @@ export default function Header() {
                   فروشگاه
                 </Link>
                 <Link
-                  href="/plant-care"
+                  href="/pistachio-care"
                   className={`text-lg transition-colors ${
-                    isActive("/plant-care")
+                    isActive("/pistachio-care")
                       ? "text-[var(--accent)]"
                       : "text-[var(--foreground)] hover:text-[var(--accent)]"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  مراقبت از گیاهان
+                  مراقبت از مزارع پسته
                 </Link>
                 <Link
                   href="/blogs"

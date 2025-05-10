@@ -4,25 +4,25 @@ import Link from "next/link"
 import { blogs } from "@/lib/data"
 
 import blogMainPic from "/public/blogImages/blog-pic-main.jpg"
-import SeasonalPlantcare from "/public/blogImages/Seasonal-plantcare.jpg"
-import PropagationHouseplants from "/public/blogImages/Propagation-houseplants.jpg"
-import houseplantsPic from "/public/blogImages/houseplants.jpg"
+import blogPic1 from "/public/blogImages/blogPic-1.jpg"
+import blogPic2 from "/public/blogImages/blogPic-2.jpg"
+import blogPic3 from "/public/blogImages/blogPic-3.jpg"
+import blogPic4 from "/public/blogImages/blogPic-4.jpg"
 
-import bestplantsPic from "/public/blogImages/bestplants.jpg"
-import { Plant, useCart } from "@/context/cart-context"
+import { Pistachio, useCart } from "@/context/cart-context"
 import { useState } from "react"
 
 type BlogCardProps = {
-  plant: Plant
+  pistachio: Pistachio
   size?: "small" | "medium" | "large"
   index?: number
 }
 
-const images = [SeasonalPlantcare,PropagationHouseplants,houseplantsPic,bestplantsPic]
+const images = [blogPic1,blogPic2,blogPic3,blogPic4]
 
 
 
-export default function BlogsPage({ plant, size = "medium", index = 0 }: BlogCardProps) {
+export default function BlogsPage({ pistachio, size = "medium", index = 0 }: BlogCardProps) {
   const { addToCart } = useCart()
     const [imageError, setImageError] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
@@ -30,7 +30,7 @@ export default function BlogsPage({ plant, size = "medium", index = 0 }: BlogCar
     const handleAddToCart = (e: React.MouseEvent) => {
       e.preventDefault()
       e.stopPropagation()
-      addToCart(plant)
+      addToCart(pistachio)
     }
 
     const handleImageError = () => {
@@ -43,7 +43,7 @@ export default function BlogsPage({ plant, size = "medium", index = 0 }: BlogCar
     }
 
     const fallbackImage = images[index % images.length]
-    const imageSrc = imageError ? "/public/blogImages/blog-pic-main.jpg" : (plant?.image || fallbackImage)
+    const imageSrc = imageError ? "/public/blogImages/blog-pic-main.jpg" : (pistachio?.image || fallbackImage)
 
   return (
     <div className="text-center">
@@ -54,7 +54,7 @@ export default function BlogsPage({ plant, size = "medium", index = 0 }: BlogCar
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-center sm:text-left">آخرین نکات و الهام‌های گیاهی</h2>
             <p className="text-gray-500 text-center sm:text-left">
-              آخرین روندها در باغبانی داخلی، نکات مراقبت از گیاهان توسط متخصصان و ایده‌های الهام‌بخش برای دگرگونی فضای خود با گیاهان را کشف کنید.
+              آخرین روندها در باغبانی داخلی، نکات مراقبت از مزارع پسته توسط متخصصان و ایده‌های الهام‌بخش برای دگرگونی فضای خود با گیاهان را کشف کنید.
             </p>
             <p className="text-gray-500 text-center sm:text-left">
               وبلاگ ما به طور منظم با محتوای متخصصان و علاقه‌مندان به گیاهان به‌روزرسانی می‌شود تا در سفر گیاهی شما کمک کند.
@@ -95,7 +95,7 @@ export default function BlogsPage({ plant, size = "medium", index = 0 }: BlogCar
         <div className="mt-12 bg-[#171f12] rounded-xl p-6 sm:p-8">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center sm:text-left">عضویت در خبرنامه ما</h2>
           <p className="text-gray-300 mb-6 text-center sm:text-left">
-            آخرین نکات مراقبت از گیاهان، به‌روزرسانی‌های وبلاگ و پیشنهادات ویژه را مستقیماً در صندوق ورودی خود دریافت کنید.
+            آخرین نکات مراقبت از مزارع پسته، به‌روزرسانی‌های وبلاگ و پیشنهادات ویژه را مستقیماً در صندوق ورودی خود دریافت کنید.
           </p>
           <form className="flex flex-col sm:flex-row gap-4">
             <input

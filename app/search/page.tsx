@@ -3,8 +3,8 @@
 import type React from "react"
 
 import { useSearchParams } from "next/navigation"
-import { plants } from "@/lib/data"
-import PlantCard from "@/components/plant-card"
+import { pistachios } from "@/lib/data"
+import PistachioCard from "@/components/pistachio-card"
 import Link from "next/link"
 import { Search } from "lucide-react"
 import { useState } from "react"
@@ -14,12 +14,12 @@ export default function SearchPage() {
   const initialQuery = searchParams.get("q") || ""
   const [searchQuery, setSearchQuery] = useState(initialQuery)
 
-  // Filter plants based on search query
-  const filteredPlants = plants.filter((plant) => {
+  // Filter pistachios based on search query
+  const filteredpistachios = pistachios.filter((pistachio) => {
     return (
-      plant.name.toLowerCase().includes(initialQuery.toLowerCase()) ||
-      plant.description.toLowerCase().includes(initialQuery.toLowerCase()) ||
-      plant.category.toLowerCase().includes(initialQuery.toLowerCase())
+      pistachio.name.toLowerCase().includes(initialQuery.toLowerCase()) ||
+      pistachio.description.toLowerCase().includes(initialQuery.toLowerCase()) ||
+      pistachio.category.toLowerCase().includes(initialQuery.toLowerCase())
     )
   })
 
@@ -52,10 +52,10 @@ export default function SearchPage() {
         {initialQuery ? (
           <>
             <p className="mb-6 text-gray-400">
-              {filteredPlants.length} نتیجه برای "{initialQuery}"
+              {filteredpistachios.length} نتیجه برای "{initialQuery}"
             </p>
 
-            {filteredPlants.length === 0 ? (
+            {filteredpistachios.length === 0 ? (
               <div className="bg-[#222c1d] rounded-xl p-8 text-center">
                 <h3 className="text-xl font-medium mb-2">گیاهی یافت نشد</h3>
                 <p className="text-gray-400 mb-4">لطفاً با کلمات کلیدی دیگر جستجو کنید.</p>
@@ -68,8 +68,8 @@ export default function SearchPage() {
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredPlants.map((plant) => (
-                  <PlantCard key={plant.id} plant={plant} />
+                {filteredpistachios.map((pistachio) => (
+                  <PistachioCard key={pistachio.id} pistachio={pistachio} />
                 ))}
               </div>
             )}

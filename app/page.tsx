@@ -3,32 +3,32 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Star } from "lucide-react"
-import PlantCard from "@/components/plant-card"
-import { plants as rawPlants } from "@/lib/data"
+import PistachioCard from "@/components/pistachio-card"
+import { pistachios as rawpistachios } from "@/lib/data"
 
-// Ensure all plant prices are numbers
-const plants = rawPlants.map((plant) => ({
-  ...plant,
-  price: typeof plant.price === "string" ? parseFloat(plant.price) : plant.price,
+// Ensure all pistachio prices are numbers
+const pistachios = rawpistachios.map((pistachio) => ({
+  ...pistachio,
+  price: typeof pistachio.price === "string" ? parseFloat(pistachio.price) : pistachio.price,
 }));
-import mainPic from "/public/image/main-pic.svg"
-import EpipremnumAureum from "/public/image/Epipremnum-aureum.svg"
+import mainPic from "/public/image/main-pic.jpg"
+import AkbariPistachio from "/public/image/Akbari-Pistachio.png"
 import RandomUser from "@/components/ui/random-user"
 
 export default function Home() {
-  // Featured plants
-  const featuredPlants = plants.slice(0, 3)
-  // Top selling plants
-  const topSellingPlants = plants.slice(3, 9)
+  // Featured pistachios
+  const featuredpistachios = pistachios.slice(0, 3)
+  // Top selling pistachios
+  const topSellingpistachios = pistachios.slice(3, 9)
 
   return (
     <div>
       <section className="container py-12">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold">کشاورز یار</h1>
+            <h1 className="text-4xl md:text-5xl font-bold">پستاک</h1>
             <p className="text-gray-500 max-w-md">
-              گیاه مناسب خانه خود را پیدا کنید. ما تنوع گسترده‌ای از گیاهان داریم که با سلیقه و بودجه شما سازگار هستند.
+              پسته‌ای که دنبالش بودید همین‌جاست؛ با تنوعی از طعم‌ها و قیمت‌ها، برای هر سلیقه و بودجه‌ای.
             </p>
             <div className="flex gap-4">
               <Link
@@ -38,7 +38,7 @@ export default function Home() {
                 خرید کنید
               </Link>
               <Link
-                href="/plant-care"
+                href="/pistachio-care"
                 className="border border-[#48da4b] text-[#48da4b] px-4 py-2 rounded-full font-medium hover:bg-[#48da4b]/10 transition-colors"
               >
                 بیشتر بدانید
@@ -77,8 +77,8 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {featuredPlants.map((plant) => (
-            <PlantCard key={plant.id} plant={plant} />
+          {featuredpistachios.map((pistachio) => (
+            <PistachioCard key={pistachio.id} pistachio={pistachio} />
           ))}
         </div>
       </section>
@@ -95,8 +95,8 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {topSellingPlants.map((plant) => (
-            <PlantCard key={plant.id} plant={plant} />
+          {topSellingpistachios.map((pistachio) => (
+            <PistachioCard key={pistachio.id} pistachio={pistachio} />
           ))}
         </div>
       </section>
@@ -106,7 +106,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="relative h-[300px] w-full">
               <Image
-                src={EpipremnumAureum}
+                src={AkbariPistachio}
                 alt="گیاه تزئینی بزرگ"
                 fill
                 className="object-contain"

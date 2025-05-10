@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 import dynamic from 'next/dynamic'
 
-export type Plant = {
+export type Pistachio = {
   id: number
   name: string
   description: string
@@ -13,15 +13,15 @@ export type Plant = {
   category: string
 }
 
-export type CartItem = Plant & {
+export type CartItem = Pistachio & {
   quantity: number
 }
 
 type CartContextType = {
   cart: CartItem[]
-  addToCart: (plant: Plant) => void
-  removeFromCart: (plantId: number) => void
-  updateQuantity: (plantId: number, quantity: number) => void
+  addToCart: (pistachio: Pistachio) => void
+  removeFromCart: (pistachioId: number) => void
+  updateQuantity: (pistachioId: number, quantity: number) => void
   clearCart: () => void
   totalItems: number
   totalPrice: number
@@ -29,7 +29,7 @@ type CartContextType = {
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
-const CART_STORAGE_KEY = "plant-shop-cart"
+const CART_STORAGE_KEY = "pistachio-shop-cart"
 
 function CartProviderComponent({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([])
@@ -62,33 +62,33 @@ function CartProviderComponent({ children }: { children: ReactNode }) {
     }
   }, [cart, mounted])
 
-  const addToCart = (plant: Plant) => {
+  const addToCart = (pistachio: Pistachio) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === plant.id)
+      const existingItem = prevCart.find((item) => item.id === pistachio.id)
 
       if (existingItem) {
         return prevCart.map((item) =>
-          item.id === plant.id ? { ...item, quantity: Math.min(item.quantity + 1, 99) } : item
+          item.id === pistachio.id ? { ...item, quantity: Math.min(item.quantity + 1, 99) } : item
         )
       } else {
-        return [...prevCart, { ...plant, quantity: 1 }]
+        return [...prevCart, { ...pistachio, quantity: 1 }]
       }
     })
   }
 
-  const removeFromCart = (plantId: number) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== plantId))
+  const removeFromCart = (pistachioId: number) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== pistachioId))
   }
 
-  const updateQuantity = (plantId: number, quantity: number) => {
+  const updateQuantity = (pistachioId: number, quantity: number) => {
     if (quantity <= 0) {
-      removeFromCart(plantId)
+      removeFromCart(pistachioId)
       return
     }
 
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === plantId ? { ...item, quantity: Math.min(quantity, 99) } : item
+        item.id === pistachioId ? { ...item, quantity: Math.min(quantity, 99) } : item
       )
     )
   }

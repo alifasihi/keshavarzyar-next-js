@@ -28,7 +28,7 @@ const YekanBakh = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "کشاورز یار - فروشگاه گیاهان آپارتمانی",
+  title: "پستاک – فروشگاه آنلاین پسته‌ی تازه و خوش‌طعم",
   description: "گیاهان آپارتمانی مناسب برای خانه‌تان را پیدا کنید",
   generator: 'https://alifasihi.vercel.app',
   icons: {
@@ -38,16 +38,16 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "کشاورز یار - فروشگاه گیاهان آپارتمانی",
+    title: "پستاک - فروشگاه گیاهان آپارتمانی",
     description: "گیاهان آپارتمانی مناسب برای خانه‌تان را پیدا کنید",
     url: 'https://alifasihi.vercel.app',
-    siteName: 'کشاورز یار',
+    siteName: 'پستاک',
     images: [
       {
         url: "/logo.png", // Direct string path
         width: 1200,
         height: 630,
-        alt: 'کشاورز یار - گیاهان آپارتمانی',
+        alt: 'پستاک - گیاهان آپارتمانی',
       },
     ],
     locale: 'fa_IR',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "کشاورز یار - فروشگاه گیاهان آپارتمانی",
+    title: "پستاک - فروشگاه گیاهان آپارتمانی",
     description: "گیاهان آپارتمانی مناسب برای خانه‌تان را پیدا کنید",
     images: ['/og-image.jpg'],
   },

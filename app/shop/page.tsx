@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import PlantCard from "@/components/plant-card"
-import { plants } from "@/lib/data"
+import PistachioCard from "../../components/pistachio-card"
+import { pistachios } from "@/lib/data"
 import { Filter, Search } from "lucide-react"
 import { convertNumberToPersian } from '@/utils/convertNumberToPersian';
 
@@ -12,15 +12,15 @@ export default function ShopPage() {
   const [searchTerm, setSearchTerm] = useState<string>("")
   const [showFilters, setShowFilters] = useState<boolean>(false)
 
-  const categories = ["all", "indoor", "tropical", "succulent", "flowering", "hanging"]
+  const categories = ["all", "پسته", "tropical", "succulent", "flowering", "hanging"]
 
   // Update the category labels to Persian
   const categoriesWithLabels = categories.map((cat) => {
     switch (cat) {
       case "all":
         return { value: cat, label: "همه" }
-      case "indoor":
-        return { value: cat, label: "داخلی" }
+      case "pistachio":
+        return { value: cat, label: "پسته" }
       case "tropical":
         return { value: cat, label: "گرمسیری" }
       case "succulent":
@@ -42,18 +42,18 @@ export default function ShopPage() {
     { label: "بالای ۱۶,۰۰۰,۰۰۰ ریال", value: "over-16,000,000" },
   ]
 
-  const filteredPlants = plants.map((plant) => ({
-    ...plant,
-    price: Number(plant.price),
-  })).filter((plant) => {
+  const filteredpistachios = pistachios.map((pistachio) => ({
+    ...pistachio,
+    price: Number(pistachio.price),
+  })).filter((pistachio) => {
     // Filter by category
-    if (category !== "all" && plant.category !== category) {
+    if (category !== "all" && pistachio.category !== category) {
       return false
     }
 
     // Filter by price range
     if (priceRange !== "all") {
-      const price = Number(convertNumberToPersian(plant.price))
+      const price = Number(convertNumberToPersian(pistachio.price))
       if (priceRange === "under-8,000,000" && price >= 8000000) {
         return false
       } else if (priceRange === "8,000,000-12,000,000" && (price < 8000000 || price > 12000000)) {
@@ -68,8 +68,8 @@ export default function ShopPage() {
     // Filter by search term
     if (
       searchTerm &&
-      !plant.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      !plant.description.toLowerCase().includes(searchTerm.toLowerCase())
+      !pistachio.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+      !pistachio.description.toLowerCase().includes(searchTerm.toLowerCase())
     ) {
       return false
     }
@@ -80,7 +80,7 @@ export default function ShopPage() {
   return (
     <div className="container py-8">
       <div className="text-center">
-        <h1 className="text-3xl font-bold mb-8">فروشگاه گیاهان</h1>
+        <h1 className="text-3xl font-bold mb-8">فروشگاه آنلاین پسته‌ی تازه و خوش‌طعم</h1>
 
         <div className="flex flex-col md:flex-row gap-8">
           {/* Filters - Mobile Toggle */}
@@ -96,14 +96,14 @@ export default function ShopPage() {
           <div
             className={`${
               showFilters ? "block" : "hidden"
-            } md:block w-full md:w-64 bg-[var(--card)] rounded-xl p-6 h-fit sticky top-4 theme-transition plant-card-shadow`}
+            } md:block w-full md:w-64 bg-[var(--card)] rounded-xl p-6 h-fit sticky top-4 theme-transition pistachio-card-shadow`}
           >
             <div className="mb-6">
               <h3 className="font-medium mb-3">جستجو</h3>
               <div className="relative">
                 <input
                   type="text"
-                  placeholder="جستجوی گیاهان..."
+                  placeholder="جستجوی محصولات..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full bg-[var(--card-darker)] text-[var(--foreground)] px-4 py-2 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
@@ -151,15 +151,15 @@ export default function ShopPage() {
 
           {/* Products Grid */}
           <div className="flex-1">
-            {filteredPlants.length === 0 ? (
+            {filteredpistachios.length === 0 ? (
               <div className="bg-[#222c1d] rounded-xl p-8 text-center">
-                <h3 className="text-xl font-medium mb-2">گیاهی یافت نشد</h3>
+                <h3 className="text-xl font-medium mb-2">محصولی یافت نشد</h3>
                 <p className="text-gray-400">لطفاً فیلترها یا عبارت جستجو را تغییر دهید.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredPlants.map((plant) => (
-                  <PlantCard key={plant.id} plant={plant} />
+                {filteredpistachios.map((pistachio) => (
+                  <PistachioCard key={pistachio.id} pistachio={pistachio} />
                 ))}
               </div>
             )}

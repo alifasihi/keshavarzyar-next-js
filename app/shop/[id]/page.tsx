@@ -3,32 +3,32 @@
 import { useState, use } from "react"
 import Image from "next/image"
 import { Star, Minus, Plus, ShoppingCart, Heart, ArrowLeft } from "lucide-react"
-import { plants } from "@/lib/data"
+import { pistachios } from "@/lib/data"
 import { useCart } from "@/context/cart-context"
 import Link from "next/link"
-import PlantCard from "@/components/plant-card"
+import PistachioCard from "@/components/pistachio-card"
 import { convertNumberToPersian } from "@/utils/convertNumberToPersian"
 
 // Update all numbers to Persian digits
 const toPersianDigits = (num: number) => num.toString().replace(/[0-9]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[parseInt(d)]);
 
-export default function PlantDetailPage({ params }: { params: Promise<{ id: string }> }) {
+export default function PistachioDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const [quantity, setQuantity] = useState(1)
   const { addToCart } = useCart()
 
-  const plantId = Number.parseInt(id)
-  const plant = plants.find((p) => p.id === plantId)
+  const pistachioId = Number.parseInt(id)
+  const pistachio = pistachios.find((p) => p.id === pistachioId)
 
-  // Get similar plants (same category)
-  const similarPlants = plant
-    ? plants
-        .filter((p) => p.category === plant.category && p.id !== plant.id)
+  // Get similar pistachios (same category)
+  const similarpistachios = pistachio
+    ? pistachios
+        .filter((p) => p.category === pistachio.category && p.id !== pistachio.id)
         .map((p) => ({ ...p, price: Number(p.price) }))
         .slice(0, 3)
     : []
 
-  if (!plant) {
+  if (!pistachio) {
     return (
       <div className="container py-12 text-center">
         <h1 className="text-2xl font-bold mb-4">گیاه یافت نشد</h1>
@@ -54,9 +54,9 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
   }
 
   const handleAddToCart = () => {
-    // Add the plant to cart with the selected quantity
+    // Add the pistachio to cart with the selected quantity
     for (let i = 0; i < quantity; i++) {
-      addToCart({ ...plant, price: Number(plant.price) })
+      addToCart({ ...pistachio, price: Number(pistachio.price) })
     }
   }
 
@@ -70,12 +70,12 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         <div className="bg-[#222c1d] rounded-xl p-6">
           <div className="relative h-[400px] w-full">
-            <Image src={plant.image || "/placeholder.svg"} alt={plant.name} fill className="object-contain" />
+            <Image src={pistachio.image || "/placeholder.svg"} alt={pistachio.name} fill className="object-contain" />
           </div>
         </div>
 
         <div className="space-y-6">
-          <h1 className="text-3xl font-bold">{plant.name}</h1>
+          <h1 className="text-3xl font-bold">{pistachio.name}</h1>
 
           <div className="flex items-center gap-2">
             <div className="flex">
@@ -83,18 +83,18 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
                 <Star
                   key={i}
                   className={`w-5 h-5 ${
-                    i < Math.floor(plant.rating) ? "fill-[#48da4b] text-[#48da4b]" : "text-gray-400"
+                    i < Math.floor(pistachio.rating) ? "fill-[#48da4b] text-[#48da4b]" : "text-gray-400"
                   }`}
                 />
               ))}
             </div>
-            <span className="text-gray-400">({toPersianDigits(plant.rating)} امتیاز)</span>
+            <span className="text-gray-400">({toPersianDigits(pistachio.rating)} امتیاز)</span>
           </div>
 
-          <p className="text-2xl font-bold">ریال {convertNumberToPersian(Number(plant.price))}</p>
+          <p className="text-2xl font-bold">ریال {convertNumberToPersian(Number(pistachio.price))}</p>
 
           <div className="border-t border-[#222c1d] pt-4"></div>
-            <p className="text-gray-500">{plant.description}</p>
+            <p className="text-gray-500">{pistachio.description}</p>
           </div>
 
           <div className="border-t border-[#222c1d] pt-4">
@@ -136,7 +136,7 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <h3 className="font-medium mb-1">نوع گیاه</h3>
-                <p className="text-gray-400 capitalize">{plant.category}</p>
+                <p className="text-gray-400 capitalize">{pistachio.category}</p>
               </div>
               <div>
                 <h3 className="font-medium mb-1">اندازه</h3>
@@ -154,12 +154,12 @@ export default function PlantDetailPage({ params }: { params: Promise<{ id: stri
         </div>
       </div>
 
-      {similarPlants.length > 0 && (
+      {similarpistachios.length > 0 && (
         <section className="py-8">
           <h2 className="text-2xl font-bold mb-6">گیاهان مشابه</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {similarPlants.map((plant) => (
-              <PlantCard key={plant.id} plant={plant} />
+            {similarpistachios.map((pistachio) => (
+              <PistachioCard key={pistachio.id} pistachio={pistachio} />
             ))}
           </div>
         </section>

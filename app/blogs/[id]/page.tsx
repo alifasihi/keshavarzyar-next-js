@@ -71,7 +71,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
 
           <div className="flex items-center justify-between mt-8 pt-8 border-t border-[#222c1d]">
             <div className="flex gap-2">
-              <button className="bg-[#222c1d] px-3 py-1 rounded-full text-sm">Plants</button>
+              <button className="bg-[#222c1d] px-3 py-1 rounded-full text-sm">pistachios</button>
               <button className="bg-[#222c1d] px-3 py-1 rounded-full text-sm">Care</button>
               <button className="bg-[#222c1d] px-3 py-1 rounded-full text-sm">Tips</button>
             </div>

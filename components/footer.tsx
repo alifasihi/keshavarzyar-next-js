@@ -12,13 +12,13 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-full flex items-center justify-center">
               <Link href="/" className="flex items-center gap-2">
-                <Image src={logo} alt="کشاورز یار" className="w-[32px] " />
+                <Image src={logo} alt="پستاک" className="w-[32px] " />
               </Link>
               </div>
-              <span className="font-bold text-lg">کشاورز یار</span>
+              <span className="font-bold text-lg">پستاک</span>
             </div>
             <p className="text-sm text-[var(--muted-foreground)] mb-4">
-              گیاه مناسب خانه خود را پیدا کنید. ما تنوع گسترده‌ای از گیاهان داریم که با سلیقه و بودجه شما سازگار هستند.
+              پسته‌ای که دنبالش بودید همین‌جاست؛ با تنوعی از طعم‌ها و قیمت‌ها، برای هر سلیقه و بودجه‌ای.
             </p>
             <div className="flex gap-2">
               <button className="w-8 h-8 rounded-full bg-[var(--card)] flex items-center justify-center hover:bg-[var(--accent)] transition-colors">
@@ -47,8 +47,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/plant-care" className="hover:text-[var(--accent)] transition-colors">
-                  مراقبت از گیاهان
+                <Link href="/pistachio-care" className="hover:text-[var(--accent)] transition-colors">
+                  مراقبت از مزارع پسته
                 </Link>
               </li>
               <li>
@@ -62,7 +62,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-4 text-base sm:text-lg">تماس با ما</h4>
             <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
-              <li>ایمیل: hello@plantio.com</li>
+              <li>ایمیل: hello@pistachioio.com</li>
               <li>تلفن: +۱ ۲۳۴ ۵۶۷ ۸۹۰</li>
               <li>آدرس: خیابان سبز ۱۲۳، شهر گیاهان</li>
             </ul>
@@ -87,7 +87,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-[var(--card)] mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-[var(--muted-foreground)]">
-          <p>© ۱۴۰۴ کشاورز یار تمامی حقوق محفوظ است.</p>
+          <p>© ۱۴۰۴ پستاک تمامی حقوق محفوظ است.</p>
         </div>
       </div>
     </footer>
