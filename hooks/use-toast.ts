@@ -18,6 +18,10 @@ type ToasterToast = ToastProps & {
   action?: ToastActionElement
 }
 
+type State = {
+  toasts: ToasterToast[]
+}
+
 const actionTypes = {
   ADD_TOAST: "ADD_TOAST",
   UPDATE_TOAST: "UPDATE_TOAST",
@@ -52,11 +56,18 @@ type Action =
       toastId?: ToasterToast["id"]
     }
 
-YekanBakhface State {
-  toasts: ToasterToast[]
-}
-
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>()
+
+const listeners: Array<(state: State) => void> = []
+
+let memoryState: State = { toasts: [] }
+
+function dispatch(action: Action) {
+  memoryState = reducer(memoryState, action)
+  listeners.forEach((listener) => {
+    listener(memoryState)
+  })
+}
 
 const addToRemoveQueue = (toastId: string) => {
   if (toastTimeouts.has(toastId)) {
@@ -127,17 +138,6 @@ export const reducer = (state: State, action: Action): State => {
         toasts: state.toasts.filter((t) => t.id !== action.toastId),
       }
   }
-}
-
-const listeners: Array<(state: State) => void> = []
-
-let memoryState: State = { toasts: [] }
-
-function dispatch(action: Action) {
-  memoryState = reducer(memoryState, action)
-  listeners.forEach((listener) => {
-    listener(memoryState)
-  })
 }
 
 type Toast = Omit<ToasterToast, "id">

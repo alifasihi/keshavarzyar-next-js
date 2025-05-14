@@ -32,8 +32,8 @@ export default function LoginPage() {
     // Basic validation
     if (!formData.email || !formData.password) {
       toast({
-        title: "Error",
-        description: "Please fill in all fields",
+        title: "خطا",
+        description: "لطفاً همه فیلدها را پر کنید",
         variant: "destructive",
       })
       return
@@ -47,15 +47,15 @@ export default function LoginPage() {
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
       toast({
-        title: "Success",
-        description: "You have successfully logged in",
+        title: "موفقیت",
+        description: "شما با موفقیت وارد شدید",
       })
 
       router.push("/")
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to login. Please try again.",
+        title: "خطا",
+        description: "ورود ناموفق بود. لطفاً دوباره تلاش کنید.",
         variant: "destructive",
       })
     } finally {
@@ -66,18 +66,18 @@ export default function LoginPage() {
   return (
     <div className="container max-w-md mx-auto px-4 py-16">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold mb-2">Welcome Back</h1>
-        <p className="text-muted-foreground">Sign in to your Plantio account</p>
+        <h1 className="text-3xl font-bold mb-2">خوش آمدید</h1>
+        <p className="text-muted-foreground">برای ورود به حساب پلنتیو خود وارد شوید</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">ایمیل</Label>
           <Input
             id="email"
             name="email"
             type="email"
-            placeholder="you@example.com"
+            placeholder="شما@example.com"
             value={formData.email}
             onChange={handleChange}
             disabled={isLoading}
@@ -87,9 +87,9 @@ export default function LoginPage() {
 
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">رمز عبور</Label>
             <Link href="/forgot-password" className="text-sm text-primary hover:underline">
-              Forgot password?
+              رمز عبور را فراموش کرده‌اید؟
             </Link>
           </div>
           <div className="relative">
@@ -117,10 +117,10 @@ export default function LoginPage() {
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Signing in...
+              در حال ورود...
             </>
           ) : (
-            "Sign In"
+            "ورود"
           )}
         </Button>
       </form>
@@ -131,24 +131,24 @@ export default function LoginPage() {
             <Separator />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+            <span className="bg-background px-2 text-muted-foreground">یا ادامه با</span>
           </div>
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-4">
           <Button variant="outline" type="button" disabled={isLoading}>
-            Google
+            گوگل
           </Button>
           <Button variant="outline" type="button" disabled={isLoading}>
-            Facebook
+            فیسبوک
           </Button>
         </div>
       </div>
 
       <p className="text-center mt-8 text-sm text-muted-foreground">
-        Don't have an account?{" "}
+        حساب کاربری ندارید؟{" "}
         <Link href="/register" className="text-primary hover:underline">
-          Sign up
+          ثبت‌نام
         </Link>
       </p>
     </div>

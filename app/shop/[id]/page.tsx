@@ -88,7 +88,7 @@ export default function PistachioDetailPage({ params }: { params: Promise<{ id: 
                 />
               ))}
             </div>
-            <span className="text-gray-400">({toPersianDigits(pistachio.rating)} امتیاز)</span>
+            <span className="text-gray-400">({convertNumberToPersian(pistachio.rating)} امتیاز)</span>
           </div>
 
           <p className="text-2xl font-bold">ریال {convertNumberToPersian(Number(pistachio.price))}</p>

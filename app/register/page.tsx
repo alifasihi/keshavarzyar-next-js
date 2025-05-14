@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -35,8 +33,8 @@ export default function RegisterPage() {
     // Basic validation
     if (!formData.name || !formData.email || !formData.password) {
       toast({
-        title: "Error",
-        description: "Please fill in all fields",
+        title: "خطا",
+        description: "لطفاً همه فیلدها را پر کنید",
         variant: "destructive",
       })
       return
@@ -44,8 +42,8 @@ export default function RegisterPage() {
 
     if (!acceptTerms) {
       toast({
-        title: "Error",
-        description: "You must accept the terms and conditions",
+        title: "خطا",
+        description: "شما باید شرایط و ضوابط را بپذیرید",
         variant: "destructive",
       })
       return
@@ -59,15 +57,15 @@ export default function RegisterPage() {
       await new Promise((resolve) => setTimeout(resolve, 1500))
 
       toast({
-        title: "Success",
-        description: "Your account has been created",
+        title: "موفقیت",
+        description: "حساب شما با موفقیت ایجاد شد",
       })
 
       router.push("/login")
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to create account. Please try again.",
+        title: "خطا",
+        description: "ایجاد حساب ناموفق بود. لطفاً دوباره تلاش کنید.",
         variant: "destructive",
       })
     } finally {
@@ -78,18 +76,18 @@ export default function RegisterPage() {
   return (
     <div className="container max-w-md mx-auto px-4 py-16">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold mb-2">Create an Account</h1>
-        <p className="text-muted-foreground">Join Plantio and start your plant journey</p>
+        <h1 className="text-3xl font-bold mb-2">ایجاد حساب کاربری</h1>
+        <p className="text-muted-foreground">به پلنتیو بپیوندید و سفر گیاهی خود را آغاز کنید</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-2">
-          <Label htmlFor="name">Full Name</Label>
+          <Label htmlFor="name">نام کامل</Label>
           <Input
             id="name"
             name="name"
             type="text"
-            placeholder="John Doe"
+            placeholder="علی رضایی"
             value={formData.name}
             onChange={handleChange}
             disabled={isLoading}
@@ -98,12 +96,12 @@ export default function RegisterPage() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">ایمیل</Label>
           <Input
             id="email"
             name="email"
             type="email"
-            placeholder="you@example.com"
+            placeholder="شما@example.com"
             value={formData.email}
             onChange={handleChange}
             disabled={isLoading}
@@ -112,7 +110,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">رمز عبور</Label>
           <div className="relative">
             <Input
               id="password"
@@ -132,7 +130,7 @@ export default function RegisterPage() {
               {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
             </button>
           </div>
-          <p className="text-xs text-muted-foreground mt-1">Password must be at least 8 characters long</p>
+          <p className="text-xs text-muted-foreground mt-1">رمز عبور باید حداقل ۸ کاراکتر باشد</p>
         </div>
 
         <div className="flex items-center space-x-2">
@@ -141,10 +139,11 @@ export default function RegisterPage() {
             htmlFor="terms"
             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
-            I agree to the{" "}
+            من با{" "}
             <Link href="/terms" className="text-primary hover:underline">
-              terms and conditions
+              شرایط و ضوابط
             </Link>
+            موافقم
           </label>
         </div>
 
@@ -152,10 +151,10 @@ export default function RegisterPage() {
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Creating account...
+              در حال ایجاد حساب...
             </>
           ) : (
-            "Create Account"
+            "ایجاد حساب"
           )}
         </Button>
       </form>
@@ -166,24 +165,24 @@ export default function RegisterPage() {
             <Separator />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+            <span className="bg-background px-2 text-muted-foreground">یا ادامه با</span>
           </div>
         </div>
 
         <div className="mt-6 grid grid-cols-2 gap-4">
           <Button variant="outline" type="button" disabled={isLoading}>
-            Google
+            گوگل
           </Button>
           <Button variant="outline" type="button" disabled={isLoading}>
-            Facebook
+            فیسبوک
           </Button>
         </div>
       </div>
 
       <p className="text-center mt-8 text-sm text-muted-foreground">
-        Already have an account?{" "}
+        قبلاً حساب دارید؟{" "}
         <Link href="/login" className="text-primary hover:underline">
-          Sign in
+          وارد شوید
         </Link>
       </p>
     </div>

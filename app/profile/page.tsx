@@ -28,42 +28,42 @@ import { useProfile } from "@/context/profile-context"
 // But remove the mockUser data since we'll get it from context
 
 const mockOrders = [
-  { id: "ORD-2023-1234", date: "June 15, 2024", status: "Delivered", total: 2450, items: 3 },
-  { id: "ORD-2023-1156", date: "May 28, 2024", status: "Processing", total: 1800, items: 2 },
-  { id: "ORD-2023-0987", date: "April 10, 2024", status: "Delivered", total: 950, items: 1 },
+  { id: "ORD-2023-1234", date: "۱۵ خرداد ۱۴۰۳", status: "تحویل داده شد", total: 2450, items: 3 },
+  { id: "ORD-2023-1156", date: "۷ خرداد ۱۴۰۳", status: "در حال پردازش", total: 1800, items: 2 },
+  { id: "ORD-2023-0987", date: "۲۲ فروردین ۱۴۰۳", status: "تحویل داده شد", total: 950, items: 1 },
 ]
 
 const mockWishlist = [
-  { id: 1, name: "Monstera Deliciosa", price: 1800 },
-  { id: 5, name: "Fiddle Leaf Fig", price: 2000 },
-  { id: 9, name: "Peace Lily", price: 1100 },
+  { id: 1, name: "مونسترا دلیسیوسا", price: 1800 },
+  { id: 5, name: "فیکوس لیرافاتا", price: 2000 },
+  { id: 9, name: "اسپاتی فیلوم", price: 1100 },
 ]
 
 const mockMessages = [
-  { id: 1, subject: "Order Confirmation", date: "June 15, 2024", read: true },
-  { id: 2, subject: "Plant Care Tips", date: "June 10, 2024", read: false },
-  { id: 3, subject: "Summer Sale Announcement", date: "May 28, 2024", read: true },
+  { id: 1, subject: "تایید سفارش", date: "۱۵ خرداد ۱۴۰۳", read: true },
+  { id: 2, subject: "نکات مراقبت از گیاه", date: "۲۰ خرداد ۱۴۰۳", read: false },
+  { id: 3, subject: "اطلاعیه فروش تابستانه", date: "۷ خرداد ۱۴۰۳", read: true },
 ]
 
 const mockAddresses = [
   {
     id: 1,
-    type: "Home",
+    type: "خانه",
     default: true,
-    address: "123 Green Street, Apt 4B, Plant City, PC 12345",
+    address: "خیابان سبز ۱۲۳، واحد ۴ب، شهر گیاه، کدپستی ۱۲۳۴۵",
   },
   {
     id: 2,
-    type: "Work",
+    type: "محل کار",
     default: false,
-    address: "456 Office Boulevard, Suite 200, Business District, BD 67890",
+    address: "بلوار دفتر ۴۵۶، طبقه ۲۰۰، منطقه تجاری، کدپستی ۶۷۸۹۰",
   },
 ]
 
 const mockVisits = [
-  { id: 5, name: "Monstera Deliciosa", date: "June 14, 2024" },
-  { id: 9, name: "Fiddle Leaf Fig", date: "June 12, 2024" },
-  { id: 3, name: "Snake Plant", date: "June 10, 2024" },
+  { id: 5, name: "مونسترا دلیسیوسا", date: "۲۴ خرداد ۱۴۰۳" },
+  { id: 9, name: "فیکوس لیرافاتا", date: "۲۲ خرداد ۱۴۰۳" },
+  { id: 3, name: "سانسوریا", date: "۲۰ خرداد ۱۴۰۳" },
 ]
 
 type ProfileSection =
@@ -99,15 +99,15 @@ export default function ProfilePage() {
   }, [sectionParam])
 
   const menuItems = [
-    { id: "summary", label: "Activity Summary", icon: <User className="w-5 h-5" /> },
-    { id: "orders", label: "Orders", icon: <Package className="w-5 h-5" /> },
-    { id: "lists", label: "My Lists", icon: <Heart className="w-5 h-5" /> },
-    { id: "feedback", label: "Feedback & Questions", icon: <MessageSquare className="w-5 h-5" /> },
-    { id: "addresses", label: "Addresses", icon: <MapPin className="w-5 h-5" /> },
-    { id: "giftcards", label: "Gift Cards", icon: <Gift className="w-5 h-5" /> },
-    { id: "messages", label: "Messages", icon: <Mail className="w-5 h-5" /> },
-    { id: "visits", label: "Recent Visits", icon: <Clock className="w-5 h-5" /> },
-    { id: "account", label: "Account Information", icon: <Settings className="w-5 h-5" /> },
+    { id: "summary", label: "خلاصه فعالیت", icon: <User className="w-5 h-5" /> },
+    { id: "orders", label: "سفارش‌ها", icon: <Package className="w-5 h-5" /> },
+    { id: "lists", label: "لیست‌های من", icon: <Heart className="w-5 h-5" /> },
+    { id: "feedback", label: "بازخورد و سوالات", icon: <MessageSquare className="w-5 h-5" /> },
+    { id: "addresses", label: "آدرس‌ها", icon: <MapPin className="w-5 h-5" /> },
+    { id: "giftcards", label: "کارت‌های هدیه", icon: <Gift className="w-5 h-5" /> },
+    { id: "messages", label: "پیام‌ها", icon: <Mail className="w-5 h-5" /> },
+    { id: "visits", label: "بازدیدهای اخیر", icon: <Clock className="w-5 h-5" /> },
+    { id: "account", label: "اطلاعات حساب کاربری", icon: <Settings className="w-5 h-5" /> },
   ]
 
   const toggleMobileMenu = () => {
@@ -116,7 +116,7 @@ export default function ProfilePage() {
 
   return (
     <div className="container py-8">
-      <h1 className="text-3xl font-bold mb-8">My Profile</h1>
+      <h1 className="text-3xl font-bold mb-8">پروفایل من</h1>
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Mobile Menu Toggle */}
@@ -150,7 +150,7 @@ export default function ProfilePage() {
 
           <button className="w-full flex items-center gap-3 p-3 rounded-lg bg-[var(--card)] hover:bg-[var(--card-darker)] text-[var(--foreground)] transition-colors theme-transition">
             <LogOut className="w-5 h-5" />
-            <span>Logout</span>
+            <span>خروج</span>
           </button>
         </div>
 
@@ -158,7 +158,7 @@ export default function ProfilePage() {
         <div className="flex-1 bg-[var(--card)] rounded-xl p-6 theme-transition plant-card-shadow">
           {activeSection === "summary" && (
             <div>
-              <h2 className="text-xl font-bold mb-6">Activity Summary</h2>
+              <h2 className="text-xl font-bold mb-6">خلاصه فعالیت</h2>
 
               <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
                 <ProfileImageUpload currentImage={user.avatar} onImageChange={updateProfileImage} />
@@ -202,13 +202,13 @@ export default function ProfilePage() {
               <div className="space-y-4">
                 {mockOrders.slice(0, 2).map((order) => (
                   <div key={order.id} className="bg-[var(--card-darker)] p-4 rounded-lg">
-                    <div className="flex flex-wrap justify-between items-center gap-2">
+                    <div className="flex flex-wrap justify بین items-center gap-2">
                       <div>
                         <p className="font-medium">{order.id}</p>
                         <p className="text-sm text-[var(--muted-foreground)]">{order.date}</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-bold">Rs. {order.total}</p>
+                        <p className="font-bold">ريال {order.total}</p>
                         <span
                           className={`text-xs px-2 py-1 rounded-full ${
                             order.status === "Delivered"
@@ -226,7 +226,7 @@ export default function ProfilePage() {
                   onClick={() => setActiveSection("orders")}
                   className="text-[var(--accent)] text-sm font-medium flex items-center gap-1 hover:underline"
                 >
-                  View all orders
+                  مشاهده all orders
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
@@ -246,7 +246,7 @@ export default function ProfilePage() {
                         <p className="text-sm text-[var(--muted-foreground)]">{order.date}</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-bold">Rs. {order.total}</p>
+                        <p className="font-bold">ريال {order.total}</p>
                         <span
                           className={`text-xs px-2 py-1 rounded-full ${
                             order.status === "Delivered"
@@ -262,10 +262,10 @@ export default function ProfilePage() {
                       <p className="text-sm text-[var(--muted-foreground)]">{order.items} items</p>
                       <div className="flex gap-2">
                         <button className="text-xs border border-[var(--accent)] text-[var(--accent)] px-3 py-1 rounded-full">
-                          Track
+                          آدرس
                         </button>
                         <button className="text-xs bg-[var(--accent)] text-[var(--background)] px-3 py-1 rounded-full">
-                          Details
+                          جزئیات
                         </button>
                       </div>
                     </div>
@@ -294,7 +294,7 @@ export default function ProfilePage() {
                       </div>
                       <div className="flex-1">
                         <p className="font-medium">{item.name}</p>
-                        <p className="font-bold">Rs. {item.price}</p>
+                        <p className="font-bold">ريال {item.price}</p>
                       </div>
                       <div className="flex gap-2">
                         <button className="w-8 h-8 rounded-full bg-[var(--background)] flex items-center justify-center">
@@ -327,10 +327,10 @@ export default function ProfilePage() {
 
           {activeSection === "feedback" && (
             <div>
-              <h2 className="text-xl font-bold mb-6">Feedback & Questions</h2>
+              <h2 className="text-xl font-bold mb-6">بازخورد و سوالات</h2>
 
               <div className="mb-8">
-                <h3 className="text-lg font-medium mb-4">Product Reviews</h3>
+                <h3 className="text-lg font-medium mb-4">مشاهده بازخوردها</h3>
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg mb-4">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="flex">
@@ -341,9 +341,9 @@ export default function ProfilePage() {
                     <p className="text-sm font-medium">Monstera Deliciosa</p>
                   </div>
                   <p className="text-sm text-[var(--muted-foreground)] mb-2">
-                    "Beautiful plant, arrived in perfect condition. Very happy with my purchase!"
+                    "گیاه زیبا، در شرایط عالی رسید. از خریدم بسیار راضی هستم!"
                   </p>
-                  <p className="text-xs text-[var(--muted-foreground)]">Posted on May 15, 2024</p>
+                  <p className="text-xs text-[var(--muted-foreground)]">ارسال شده در 15 می 2024</p>
                 </div>
 
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg">
@@ -354,22 +354,22 @@ export default function ProfilePage() {
                       ))}
                       <Star className="w-4 h-4 text-[var(--muted-foreground)]" />
                     </div>
-                    <p className="text-sm font-medium">Snake Plant</p>
+                    <p className="text-sm font-medium">گیاه مار</p>
                   </div>
                   <p className="text-sm text-[var(--muted-foreground)] mb-2">
-                    "Great plant for beginners. Shipping was a bit slow but the plant is thriving."
+                    "گیاه عالی برای مبتدیان حمل و نقل کمی کند بود اما گیاه در حال رشد است."
                   </p>
-                  <p className="text-xs text-[var(--muted-foreground)]">Posted on April 10, 2024</p>
+                  <p className="text-xs text-[var(--muted-foreground)]">ارسال شده در 10 آوریل 2024</p>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-medium mb-4">Ask a Question</h3>
+                <h3 className="text-lg font-medium mb-4">یک سوال بپرسید</h3>
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg">
                   <div className="space-y-4">
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium mb-1">
-                        Subject
+                        موضوع
                       </label>
                       <input
                         type="text"
@@ -379,8 +379,7 @@ export default function ProfilePage() {
                     </div>
                     <div>
                       <label htmlFor="question" className="block text-sm font-medium mb-1">
-                        Your Question
-                      </label>
+                        سوال شما                      </label>
                       <textarea
                         id="question"
                         rows={4}
@@ -388,7 +387,7 @@ export default function ProfilePage() {
                       ></textarea>
                     </div>
                     <button className="bg-[var(--accent)] text-[var(--background)] px-4 py-2 rounded-lg">
-                      Submit Question
+                      ارسال سوال
                     </button>
                   </div>
                 </div>
@@ -498,21 +497,21 @@ export default function ProfilePage() {
 
           {activeSection === "giftcards" && (
             <div>
-              <h2 className="text-xl font-bold mb-6">Gift Cards</h2>
+              <h2 className="text-xl font-bold mb-6">کارت‌های هدیه</h2>
 
               <div className="mb-8">
-                <h3 className="text-lg font-medium mb-4">Your Gift Cards</h3>
+                <h3 className="text-lg font-medium mb-4">کارت های هدیه شما</h3>
                 <div className="bg-[var(--card-darker)] p-6 rounded-lg text-center">
                   <Gift className="w-12 h-12 mx-auto mb-2 text-[var(--accent)]" />
-                  <p className="mb-2">You don't have any gift cards yet</p>
+                  <p className="mb-2">شما هنوز کارت‌های هدیه ندارید</p>
                   <p className="text-sm text-[var(--muted-foreground)] mb-4">
-                    Gift cards will appear here once you receive or purchase them
+                    کارت‌های هدیه پس از دریافت یا خرید در اینجا ظاهر می‌شوند
                   </p>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-medium mb-4">Redeem a Gift Card</h3>
+                <h3 className="text-lg font-medium mb-4">بازخرید یک کارت هدیه</h3>
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg">
                   <div className="flex gap-2 mb-4">
                     <input
@@ -520,7 +519,7 @@ export default function ProfilePage() {
                       placeholder="Enter gift card code"
                       className="flex-1 bg-[var(--background)] text-[var(--foreground)] px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
                     />
-                    <button className="bg-[var(--accent)] text-[var(--background)] px-4 py-2 rounded-lg">Redeem</button>
+                    <button className="bg-[var(--accent)] text-[var(--background)] px-4 py-2 rounded-lg">بازخرید</button>
                   </div>
                 </div>
               </div>
@@ -549,7 +548,7 @@ export default function ProfilePage() {
                         {message.read ? "Read" : "Unread"}
                       </p>
                       <button className="text-xs border border-[var(--accent)] text-[var(--accent)] px-3 py-1 rounded-full">
-                        View
+                        مشاهده
                       </button>
                     </div>
                   </div>
@@ -575,13 +574,13 @@ export default function ProfilePage() {
                     </div>
                     <div className="flex-1">
                       <p className="font-medium">{visit.name}</p>
-                      <p className="text-sm text-[var(--muted-foreground)]">Viewed on {visit.date}</p>
+                      <p className="text-sm text-[var(--muted-foreground)]">مشاهدهed on {visit.date}</p>
                     </div>
                     <Link
                       href={`/shop/${visit.id}`}
                       className="text-xs bg-[var(--accent)] text-[var(--background)] px-3 py-1 rounded-full"
                     >
-                      View Again
+                      مشاهده مجدد
                     </Link>
                   </div>
                 ))}
@@ -728,7 +727,7 @@ export default function ProfilePage() {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify بین">
                       <div>
                         <p className="font-medium">Plant Care Reminders</p>
                         <p className="text-sm text-[var(--muted-foreground)]">

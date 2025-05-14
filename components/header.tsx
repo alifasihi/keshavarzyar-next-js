@@ -15,6 +15,7 @@ import ThemeToggle from "./theme-toggle"
 import logo from "/public/logo.png"
 import RandomUser from "./ui/random-user";
 
+
 export default function Header() {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)

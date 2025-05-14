@@ -77,10 +77,10 @@ export default function PistachioCard({ pistachio, size = "medium", index = 0 }:
             <p className="text-xs text-[var(--muted-foreground)] line-clamp-2 mt-1">{pistachio.description}</p>
           </div>
           <div className="flex justify-between items-center mt-2">
-            <p className="font-bold text-sm">ریال {convertNumberToPersian(pistachio.price).toLocaleString()}</p>
+            <p className="font-bold text-sm">ریال {convertNumberToPersian(pistachio.price)}</p>
             <div className="flex items-center gap-1">
               <Star className="w-3 h-3 fill-[var(--accent)] text-[var(--accent)]" />
-              <span className="text-xs">{pistachio.rating.toFixed(1)}</span>
+              <span className="text-xs">{convertNumberToPersian(pistachio.rating.toFixed(1))}</span>
             </div>
           </div>
         </Link>
@@ -115,10 +115,10 @@ export default function PistachioCard({ pistachio, size = "medium", index = 0 }:
               <h3 className="font-medium text-lg">{pistachio.name}</h3>
               <p className="text-sm text-[var(--muted-foreground)] line-clamp-3">{pistachio.description}</p>
               <div className="flex justify-between items-center">
-                <p className="font-bold text-lg">ریال {pistachio.price.toLocaleString()}</p>
+                <p className="font-bold text-lg">ریال {convertNumberToPersian(pistachio.price)}</p>
                 <div className="flex items-center gap-1">
                   <Star className="w-4 h-4 fill-[var(--accent)] text-[var(--accent)]" />
-                  <span className="text-sm">{pistachio.rating.toFixed(1)}</span>
+                  <span className="text-sm">{convertNumberToPersian(pistachio.rating.toFixed(1))}</span>
                 </div>
               </div>
               <button
@@ -161,10 +161,10 @@ export default function PistachioCard({ pistachio, size = "medium", index = 0 }:
           <p className="text-sm text-[var(--muted-foreground)] line-clamp-2 mt-1">{pistachio.description}</p>
         </div>
         <div className="flex justify-between items-center mt-2">
-          <p className="font-bold text-base">ریال {pistachio.price.toLocaleString()}</p>
+          <p className="font-bold text-base">ریال {convertNumberToPersian(pistachio.price)}</p>
           <div className="flex items-center gap-1">
             <Star className="w-4 h-4 fill-[var(--accent)] text-[var(--accent)]" />
-            <span className="text-sm">{pistachio.rating.toFixed(1)}</span>
+            <span className="text-sm">{convertNumberToPersian(pistachio.rating.toFixed(1))}</span>
           </div>
         </div>
         <button
