@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { fetchApi } from "@/utils/api";
 
 interface RandomUser {
   picture: {
@@ -10,18 +11,26 @@ interface RandomUser {
 
 export default function RandomUser() {
   const [user, setUser] = useState<RandomUser | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const response = await fetch('https://randomuser.me/api/');
-      const data = await response.json();
+  const fetchUser = async () => {
+    setLoading(true);
+    try {
+      const data = await fetchApi('https://randomuser.me/api/');
       setUser(data.results[0]);
-    };
+    } catch (error) {
+      console.error('Error fetching random user:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchUser();
-  }, []);
+  fetchUser();
+}, []);
 
-  if (!user) return null;
+  if (loading) return <div>Loading...</div>;
+  if (!user) return <div>No user found</div>;
 
   return (
     <div className="flex -space-x-2">

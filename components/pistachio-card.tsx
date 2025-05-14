@@ -9,6 +9,7 @@ import AkbariPistachio from "/public/image/Akbari-Pistachio.png"
 import AhmadAghaeiRoastedPistachio from "/public/image/Ahmad-Aghaei-Roasted-Pistachio.png"
 import BadamiPistachio from "/public/image/Badami-Pistachio.png"
 import Fandoghi from "/public/image/Fandoghi.webp"
+import { convertNumberToPersian } from "@/utils/convertNumberToPersian"
 
 type PistachioCardProps = {
   pistachio: Pistachio
@@ -68,7 +69,7 @@ export default function PistachioCard({ pistachio, size = "medium", index = 0 }:
             <p className="text-xs text-[var(--muted-foreground)] line-clamp-2 mt-1">{pistachio.description}</p>
           </div>
           <div className="flex justify-between items-center mt-2">
-            <p className="font-bold text-sm">ریال {pistachio.price.toLocaleString()}</p>
+            <p className="font-bold text-sm">ریال {convertNumberToPersian(pistachio.price).toLocaleString()}</p>
             <div className="flex items-center gap-1">
               <Star className="w-3 h-3 fill-[var(--accent)] text-[var(--accent)]" />
               <span className="text-xs">{pistachio.rating.toFixed(1)}</span>

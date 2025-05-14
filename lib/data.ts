@@ -3,7 +3,7 @@ export const pistachios = [
     id: 1,
     name: "پسته بادامی خام",
     description: "باریک و کشیده، با پوست روشن",
-    price: "8390000", // Converted to number
+    price: 8390000, // Converted to number
     image: "/image/Badami-Pistachio.png",
     rating: 4.9,
     category: "پسته",
@@ -12,7 +12,7 @@ export const pistachios = [
     id: 2,
     name: "پسته اکبری دستچین خام",
     description: "کشیده‌ترین و لوکس‌ترین نوع پسته ایرانی",
-    price: "16900000", // Converted to number
+    price: 16900000, // Converted to number
     image: "/image/Akbari-Pistachio.png",
     rating: 4.3,
     category: "پسته",
@@ -21,7 +21,7 @@ export const pistachios = [
     id: 3,
     name: "پسته احمدآقایی دستچین درشت خام",
     description: "کشیده، پوست روشن، بسیار خوش‌طعم",
-    price: "15600000", // Converted to number
+    price: 15600000, // Converted to number
     image: "/image/Ahmad-Aghaei-Roasted-Pistachio.png",
     rating: 4.4,
     category: "پسته",
@@ -30,7 +30,7 @@ export const pistachios = [
     id: 4,
     name: "پسته فندقی خام",
     description: "کوچک، گرد و اقتصادی؛ محبوب‌ترین نوع صادراتی",
-    price: "9600000", // Converted to number
+    price: 9600000, // Converted to number
     image: "/image/Fandoghi.webp",
     rating: 4.2,
     category: "پسته",

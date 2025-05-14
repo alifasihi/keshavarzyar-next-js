@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Twitter, ArrowRight, Mail, MapPin, Phone } from "lucide-react"
+import { Instagram, Linkedin, Twitter,Mail,} from "lucide-react"
 import logo from "/public/logo.png"
 import Image from "next/image"
 import Link from "next/link"
@@ -12,7 +12,7 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-full flex items-center justify-center">
               <Link href="/" className="flex items-center gap-2">
-                <Image src={logo} alt="پستاک" className="w-[32px] " />
+                <Image src={logo} alt="پستاک" className="w-[64px] " />
               </Link>
               </div>
               <span className="font-bold text-lg">پستاک</span>

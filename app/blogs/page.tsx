@@ -48,20 +48,20 @@ export default function BlogsPage({ pistachio, size = "medium", index = 0 }: Blo
   return (
     <div className="text-center">
       <div className="container py-8 px-4 sm:px-6">
-        <h1 className="text-3xl font-bold mb-8 text-center sm:text-left">وبلاگ گیاهان</h1>
+        <h1 className="text-3xl font-bold mb-8 text-center sm:text-left">وبلاگ کشاورزی</h1>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-center sm:text-left">آخرین نکات و الهام‌های گیاهی</h2>
+            <h2 className="text-2xl font-bold text-center sm:text-left">آخرین نکات و الهام‌های  کشاورزی پسته</h2>
             <p className="text-gray-500 text-center sm:text-left">
-              آخرین روندها در باغبانی داخلی، نکات مراقبت از مزارع پسته توسط متخصصان و ایده‌های الهام‌بخش برای دگرگونی فضای خود با گیاهان را کشف کنید.
+              آخرین روندها در باغبانی داخلی، نکات مراقبت از مزارع پسته توسط متخصصان و ایده‌های الهام‌بخش برای دگرگونی فضای خود با درختان پسته را کشف کنید.
             </p>
             <p className="text-gray-500 text-center sm:text-left">
-              وبلاگ ما به طور منظم با محتوای متخصصان و علاقه‌مندان به گیاهان به‌روزرسانی می‌شود تا در سفر گیاهی شما کمک کند.
+              وبلاگ ما به طور منظم با محتوای متخصصان و علاقه‌مندان به پسته به‌روزرسانی می‌شود تا در سفر کشت شما کمک کند.
             </p>
           </div>
           <div className="relative h-[200px] sm:h-[300px] rounded-xl overflow-hidden">
-            <Image src={blogMainPic} alt="وبلاگ گیاهان" fill className="object-cover" />
+            <Image src={blogMainPic} alt="وبلاگ کشاورزی" fill className="object-cover" />
           </div>
         </div>
 

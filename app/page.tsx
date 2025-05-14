@@ -3,6 +3,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Star } from "lucide-react"
+import "./globals.css"
+
 import PistachioCard from "@/components/pistachio-card"
 import { pistachios as rawpistachios } from "@/lib/data"
 
@@ -67,7 +69,7 @@ export default function Home() {
 
       <section className="container py-12">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold">گیاهان ویژه</h2>
+          <h2 className="text-2xl font-bold">محصولات ویژه</h2>
           <Link
             href="/shop"
             className="text-[#48da4b] hover:underline"
