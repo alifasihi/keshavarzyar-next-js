@@ -52,7 +52,7 @@ type Action =
       toastId?: ToasterToast["id"]
     }
 
-YekanBakhface State {
+interface ToastState {
   toasts: ToasterToast[]
 }
 
@@ -135,7 +135,7 @@ let memoryState: State = { toasts: [] }
 
 function dispatch(action: Action) {
   memoryState = reducer(memoryState, action)
-  listeneریالforEach((listener) => {
+  listeners.forEach((listener) => {
     listener(memoryState)
   })
 }
@@ -175,11 +175,11 @@ function useToast() {
   const [state, setState] = React.useState<State>(memoryState)
 
   React.useEffect(() => {
-    listeneریالpush(setState)
+    listeners.push(setState)
     return () => {
-      const index = listeneریالindexOf(setState)
+      const index = listeners.indexOf(setState)
       if (index > -1) {
-        listeneریالsplice(index, 1)
+        listeners.splice(index, 1)
       }
     }
   }, [state])

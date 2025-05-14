@@ -21,7 +21,7 @@ import {
   Menu,
   X,
 } from "lucide-react"
-import ProfileImageUpload from "@/components/profile-image-upload"
+import ProfileImageUpload from "../../components/profile-image-upload"
 import { useProfile } from "@/context/profile-context"
 
 // Keep the mock data for orders, wishlist, etc.

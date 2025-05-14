@@ -10,6 +10,7 @@ import AhmadAghaeiRoastedPistachio from "/public/image/Ahmad-Aghaei-Roasted-Pist
 import BadamiPistachio from "/public/image/Badami-Pistachio.png"
 import Fandoghi from "/public/image/Fandoghi.webp"
 import { convertNumberToPersian } from "@/utils/convertNumberToPersian"
+import Loader from '../components/ui/loader'
 
 type PistachioCardProps = {
   pistachio: Pistachio
@@ -42,6 +43,9 @@ export default function PistachioCard({ pistachio, size = "medium", index = 0 }:
   const fallbackImage = images[index % images.length]
   const imageSrc = imageError ? "/image/main-pic.svg" : (pistachio.image || fallbackImage)
 
+    // const isLoading = true; // یا هر شرطی که نشان‌دهنده وضعیت لودینگ باشد
+
+
   // --- SMALL ---
   if (size === "small") {
     return (
@@ -53,7 +57,10 @@ export default function PistachioCard({ pistachio, size = "medium", index = 0 }:
                 <div className="w-6 h-6 border-2 border-[var(--accent)] border-t-transparent rounded-full animate-spin" />
               </div>
             )}
-            <Image
+            {isLoading?(
+              <Loader/>
+            ):(
+              <Image
               src={imageSrc}
               alt={pistachio.name}
               fill
@@ -63,6 +70,7 @@ export default function PistachioCard({ pistachio, size = "medium", index = 0 }:
               onLoad={handleImageLoad}
               priority={false}
             />
+            )}
           </div>
           <div className="mt-2">
             <h3 className="font-medium text-sm line-clamp-1">{pistachio.name}</h3>

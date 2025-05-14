@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { fetchApi } from "@/utils/api";
+import Loader from "@/components/ui/loader";
 
 interface RandomUser {
   picture: {
@@ -29,7 +30,11 @@ export default function RandomUser() {
   fetchUser();
 }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div>
+
+    <Loader />
+
+  </div>;
   if (!user) return <div>No user found</div>;
 
   return (
