@@ -165,7 +165,7 @@ export default function ProfilePage() {
                 <div>
                   <h3 className="text-lg font-bold">{user.name}</h3>
                   <p className="text-[var(--muted-foreground)]">{user.email}</p>
-                  <p className="text-[var(--muted-foreground)]">Member since {user.joinDate}</p>
+                  <p className="text-[var(--muted-foreground)]">عضو از {user.joinDate}</p>
                 </div>
               </div>
 
@@ -173,32 +173,32 @@ export default function ProfilePage() {
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg">
                   <div className="flex items-center gap-3 mb-2">
                     <Package className="w-5 h-5 text-[var(--accent)]" />
-                    <h4 className="font-medium">Orders</h4>
+                    <h4 className="font-medium">سفارشات </h4>
                   </div>
                   <p className="text-2xl font-bold">{mockOrders.length}</p>
-                  <p className="text-sm text-[var(--muted-foreground)]">Last order on {mockOrders[0].date}</p>
+                  <p className="text-sm text-[var(--muted-foreground)]">آخرین سفارش {mockOrders[0].date}</p>
                 </div>
 
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg">
                   <div className="flex items-center gap-3 mb-2">
                     <Heart className="w-5 h-5 text-[var(--accent)]" />
-                    <h4 className="font-medium">Wishlist</h4>
+                    <h4 className="font-medium">لیست‌های من</h4>
                   </div>
                   <p className="text-2xl font-bold">{mockWishlist.length}</p>
-                  <p className="text-sm text-[var(--muted-foreground)]">Plants saved for later</p>
+                  <p className="text-sm text-[var(--muted-foreground)]">محصولات برای بعد ذخیره شده</p>
                 </div>
 
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg">
                   <div className="flex items-center gap-3 mb-2">
                     <Mail className="w-5 h-5 text-[var(--accent)]" />
-                    <h4 className="font-medium">Messages</h4>
+                    <h4 className="font-medium">پیام ها</h4>
                   </div>
                   <p className="text-2xl font-bold">{mockMessages.filter((m) => !m.read).length}</p>
-                  <p className="text-sm text-[var(--muted-foreground)]">Unread messages</p>
+                  <p className="text-sm text-[var(--muted-foreground)]">پیام های خوانده نشده</p>
                 </div>
               </div>
 
-              <h3 className="text-lg font-bold mb-4">Recent Orders</h3>
+              <h3 className="text-lg font-bold mb-4">سفارشات اخیر</h3>
               <div className="space-y-4">
                 {mockOrders.slice(0, 2).map((order) => (
                   <div key={order.id} className="bg-[var(--card-darker)] p-4 rounded-lg">
@@ -226,7 +226,7 @@ export default function ProfilePage() {
                   onClick={() => setActiveSection("orders")}
                   className="text-[var(--accent)] text-sm font-medium flex items-center gap-1 hover:underline"
                 >
-                  مشاهده all orders
+                  مشاهده تمامی سفارشات
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
@@ -259,7 +259,7 @@ export default function ProfilePage() {
                       </div>
                     </div>
                     <div className="flex justify-between items-center">
-                      <p className="text-sm text-[var(--muted-foreground)]">{order.items} items</p>
+                      <p className="text-sm text-[var(--muted-foreground)]">{order.items} تعداد</p>
                       <div className="flex gap-2">
                         <button className="text-xs border border-[var(--accent)] text-[var(--accent)] px-3 py-1 rounded-full">
                           آدرس
@@ -277,10 +277,10 @@ export default function ProfilePage() {
 
           {activeSection === "lists" && (
             <div>
-              <h2 className="text-xl font-bold mb-6">My Lists</h2>
+              <h2 className="text-xl font-bold mb-6">لیست من</h2>
 
               <div className="mb-6">
-                <h3 className="text-lg font-medium mb-4">Wishlist</h3>
+                <h3 className="text-lg font-medium mb-4">لیست محصولات</h3>
                 <div className="space-y-4">
                   {mockWishlist.map((item) => (
                     <div key={item.id} className="bg-[var(--card-darker)] p-4 rounded-lg flex items-center gap-4">
@@ -310,7 +310,7 @@ export default function ProfilePage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-medium mb-4">Create New List</h3>
+                <h3 className="text-lg font-medium mb-4">ایجاد لیست جدید</h3>
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg">
                   <div className="flex gap-2 mb-4">
                     <input
@@ -318,7 +318,7 @@ export default function ProfilePage() {
                       placeholder="List name"
                       className="flex-1 bg-[var(--background)] text-[var(--foreground)] px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
                     />
-                    <button className="bg-[var(--accent)] text-[var(--background)] px-4 py-2 rounded-lg">Create</button>
+                    <button className="bg-[var(--accent)] text-[var(--background)] px-4 py-2 rounded-lg">ایجاد </button>
                   </div>
                 </div>
               </div>
@@ -397,7 +397,7 @@ export default function ProfilePage() {
 
           {activeSection === "addresses" && (
             <div>
-              <h2 className="text-xl font-bold mb-6">My Addresses</h2>
+              <h2 className="text-xl font-bold mb-6">آدرس های من</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 {mockAddresses.map((address) => (
@@ -411,11 +411,11 @@ export default function ProfilePage() {
                     <p className="text-sm text-[var(--muted-foreground)] mb-4">{address.address}</p>
                     <div className="flex gap-2">
                       <button className="text-xs border border-[var(--accent)] text-[var(--accent)] px-3 py-1 rounded-full">
-                        Edit
+                        ویرایش
                       </button>
                       {!address.default && (
                         <button className="text-xs border border-[var(--accent)] text-[var(--accent)] px-3 py-1 rounded-full">
-                          Set as Default
+                          به عنوان پیش فرض تنظیم کنید
                         </button>
                       )}
                     </div>
@@ -424,12 +424,12 @@ export default function ProfilePage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-medium mb-4">Add New Address</h3>
+                <h3 className="text-lg font-medium mb-4">اضافه کردن آدرس جدید</h3>
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label htmlFor="addressType" className="block text-sm font-medium mb-1">
-                        Address Type
+                        نوع آدرس
                       </label>
                       <select
                         id="addressType"
@@ -442,7 +442,7 @@ export default function ProfilePage() {
                     </div>
                     <div>
                       <label htmlFor="fullName" className="block text-sm font-medium mb-1">
-                        Full Name
+                        نام کامل
                       </label>
                       <input
                         type="text"
@@ -452,7 +452,7 @@ export default function ProfilePage() {
                     </div>
                     <div className="md:col-span-2">
                       <label htmlFor="streetAddress" className="block text-sm font-medium mb-1">
-                        Street Address
+                        آدرس خیابان
                       </label>
                       <input
                         type="text"
@@ -462,7 +462,7 @@ export default function ProfilePage() {
                     </div>
                     <div>
                       <label htmlFor="city" className="block text-sm font-medium mb-1">
-                        City
+                        شهر
                       </label>
                       <input
                         type="text"
@@ -472,7 +472,7 @@ export default function ProfilePage() {
                     </div>
                     <div>
                       <label htmlFor="postalCode" className="block text-sm font-medium mb-1">
-                        Postal Code
+                        کد پستی
                       </label>
                       <input
                         type="text"
@@ -484,11 +484,11 @@ export default function ProfilePage() {
                   <div className="flex items-center gap-2 mb-4">
                     <input type="checkbox" id="defaultAddress" className="accent-[var(--accent)]" />
                     <label htmlFor="defaultAddress" className="text-sm">
-                      Set as default address
+                      به عنوان پیش فرض تنظیم کنید آدرس
                     </label>
                   </div>
                   <button className="bg-[var(--accent)] text-[var(--background)] px-4 py-2 rounded-lg">
-                    Save Address
+                    ذخیره آدرس
                   </button>
                 </div>
               </div>
@@ -528,7 +528,7 @@ export default function ProfilePage() {
 
           {activeSection === "messages" && (
             <div>
-              <h2 className="text-xl font-bold mb-6">Messages</h2>
+              <h2 className="text-xl font-bold mb-6">پیام ها</h2>
 
               <div className="space-y-4">
                 {mockMessages.map((message) => (
@@ -545,7 +545,7 @@ export default function ProfilePage() {
                         {!message.read && (
                           <span className="inline-block w-2 h-2 bg-[var(--accent)] rounded-full mr-2"></span>
                         )}
-                        {message.read ? "Read" : "Unread"}
+                        {message.read ? "خوانده شده" : "خوانده نشده"}
                       </p>
                       <button className="text-xs border border-[var(--accent)] text-[var(--accent)] px-3 py-1 rounded-full">
                         مشاهده
@@ -559,7 +559,7 @@ export default function ProfilePage() {
 
           {activeSection === "visits" && (
             <div>
-              <h2 className="text-xl font-bold mb-6">Recent Visits</h2>
+              <h2 className="text-xl font-bold mb-6">بازدیدهای اخیر</h2>
 
               <div className="space-y-4">
                 {mockVisits.map((visit) => (
@@ -590,25 +590,25 @@ export default function ProfilePage() {
 
           {activeSection === "account" && (
             <div>
-              <h2 className="text-xl font-bold mb-6">Account Information</h2>
+              <h2 className="text-xl font-bold mb-6">اطلاعات حساب</h2>
 
               <div className="mb-8">
-                <h3 className="text-lg font-medium mb-4">Profile Picture</h3>
+                <h3 className="text-lg font-medium mb-4">عکس پروفایل</h3>
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg flex flex-col items-center sm:items-start">
                   <ProfileImageUpload currentImage={user.avatar} onImageChange={updateProfileImage} />
                   <p className="text-sm text-[var(--muted-foreground)] mt-4">
-                    Recommended: Square image, at least 200x200 pixels. Maximum file size: 5MB.
+                    توصیه می شود: تصویر مربع، حداقل 200x200 پیکسل. حداکثر حجم فایل: 5 مگابایت
                   </p>
                 </div>
               </div>
 
               <div className="mb-8">
-                <h3 className="text-lg font-medium mb-4">Personal Information</h3>
+                <h3 className="text-lg font-medium mb-4">اطلاعات شخصی</h3>
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label htmlFor="fullName" className="block text-sm font-medium mb-1">
-                        Full Name
+                        نام کامل
                       </label>
                       <input
                         type="text"
@@ -619,7 +619,7 @@ export default function ProfilePage() {
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium mb-1">
-                        Email Address
+                        ایمیل
                       </label>
                       <input
                         type="email"
@@ -630,7 +630,7 @@ export default function ProfilePage() {
                     </div>
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                        Phone Number
+                        شماره تلفن
                       </label>
                       <input
                         type="tel"
@@ -641,7 +641,7 @@ export default function ProfilePage() {
                     </div>
                     <div>
                       <label htmlFor="birthdate" className="block text-sm font-medium mb-1">
-                        Date of Birth
+                        تاریخ تولد
                       </label>
                       <input
                         type="date"
@@ -651,18 +651,18 @@ export default function ProfilePage() {
                     </div>
                   </div>
                   <button className="bg-[var(--accent)] text-[var(--background)] px-4 py-2 rounded-lg">
-                    Save Changes
+                    ذخیره تغییرات
                   </button>
                 </div>
               </div>
 
               <div className="mb-8">
-                <h3 className="text-lg font-medium mb-4">Change Password</h3>
+                <h3 className="text-lg font-medium mb-4">تغییر رمز عبور</h3>
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg">
                   <div className="space-y-4 mb-4">
                     <div>
                       <label htmlFor="currentPassword" className="block text-sm font-medium mb-1">
-                        Current Password
+                        رمز عبور فعلی
                       </label>
                       <input
                         type="password"
@@ -672,7 +672,7 @@ export default function ProfilePage() {
                     </div>
                     <div>
                       <label htmlFor="newPassword" className="block text-sm font-medium mb-1">
-                        New Password
+                        رمز عبور جدید
                       </label>
                       <input
                         type="password"
@@ -682,7 +682,7 @@ export default function ProfilePage() {
                     </div>
                     <div>
                       <label htmlFor="confirmPassword" className="block text-sm font-medium mb-1">
-                        Confirm New Password
+                        مجدد رمز عبور جدید
                       </label>
                       <input
                         type="password"
@@ -692,20 +692,20 @@ export default function ProfilePage() {
                     </div>
                   </div>
                   <button className="bg-[var(--accent)] text-[var(--background)] px-4 py-2 rounded-lg">
-                    Update Password
+                    تغییر رمز
                   </button>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-medium mb-4">Notification Preferences</h3>
+                <h3 className="text-lg font-medium mb-4">تنظیمات برگزیده اعلان</h3>
                 <div className="bg-[var(--card-darker)] p-4 rounded-lg">
                   <div className="space-y-3 mb-4">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="font-medium">Order Updates</p>
+                        <p className="font-medium">سفارش به روز رسانی</p>
                         <p className="text-sm text-[var(--muted-foreground)]">
-                          Receive notifications about your orders
+                          در مورد سفارشات خود اطلاعیه دریافت کنید
                         </p>
                       </div>
                       <div className="relative inline-block w-12 h-6 rounded-full bg-[var(--background)]">
@@ -716,10 +716,9 @@ export default function ProfilePage() {
 
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="font-medium">Promotions</p>
+                        <p className="font-medium">تبلیغات</p>
                         <p className="text-sm text-[var(--muted-foreground)]">
-                          Receive emails about sales and special offers
-                        </p>
+                          ایمیل هایی در مورد فروش و پیشنهادات ویژه دریافت کنید                        </p>
                       </div>
                       <div className="relative inline-block w-12 h-6 rounded-full bg-[var(--background)]">
                         <input type="checkbox" id="promotions" className="sr-only" defaultChecked />
@@ -729,10 +728,9 @@ export default function ProfilePage() {
 
                     <div className="flex items-center justify بین">
                       <div>
-                        <p className="font-medium">Plant Care Reminders</p>
+                        <p className="font-medium">یادآوری مراقبت از مزارع</p>
                         <p className="text-sm text-[var(--muted-foreground)]">
-                          Receive reminders to water and care for your plants
-                        </p>
+                          یادآوری آب و مراقبت از مزارع پسته خود را دریافت کنید                        </p>
                       </div>
                       <div className="relative inline-block w-12 h-6 rounded-full bg-[var(--background)]">
                         <input type="checkbox" id="careReminders" className="sr-only" />
@@ -741,7 +739,7 @@ export default function ProfilePage() {
                     </div>
                   </div>
                   <button className="bg-[var(--accent)] text-[var(--background)] px-4 py-2 rounded-lg">
-                    Save Preferences
+                    ذخیره تنظیمات
                   </button>
                 </div>
               </div>

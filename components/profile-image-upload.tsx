@@ -122,10 +122,10 @@ export default function ProfileImageUpload({ currentImage, onImageChange }: Prof
         </div>
       )}
 
-      {/* Change photo button */}
+      {/* تغییر عکس button */}
       {!previewImage && (
         <button onClick={triggerFileInput} className="mt-2 text-sm text-[var(--accent)] hover:underline">
-          Change photo
+          تغییر عکس
         </button>
       )}
     </div>

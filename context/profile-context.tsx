@@ -46,9 +46,9 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
       const randomUser = data[Math.floor(Math.random() * data.length)];
 
       setUser({
-        name: randomUser.name || 'Unknown',
-        email: randomUser.email || 'Unknown',
-        joinDate: "Unknown",
+        name: randomUser.name || 'مهمان',
+        email: randomUser.email || 'مهمان',
+        joinDate: "مهمان",
         avatar: randomUser.avatar || '/placeholder.svg',
       });
     } catch (error) {

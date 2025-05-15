@@ -192,7 +192,7 @@ export default function Header() {
                           onClick={() => setIsProfileOpen(false)}
                         >
                           <User className="w-4 h-4" />
-                          <span>My Profile</span>
+                          <span>پروفایل من</span>
                         </Link>
                         <Link
                           href="/profile?section=orders"
@@ -200,7 +200,7 @@ export default function Header() {
                           onClick={() => setIsProfileOpen(false)}
                         >
                           <Package className="w-4 h-4" />
-                          <span>My Orders</span>
+                          <span>سفارشات من </span>
                         </Link>
                         <Link
                           href="/profile?section=lists"
@@ -208,7 +208,7 @@ export default function Header() {
                           onClick={() => setIsProfileOpen(false)}
                         >
                           <Heart className="w-4 h-4" />
-                          <span>My Lists</span>
+                          <span>لیست من</span>
                         </Link>
                         <Link
                           href="/profile?section=account"
@@ -216,13 +216,13 @@ export default function Header() {
                           onClick={() => setIsProfileOpen(false)}
                         >
                           <Settings className="w-4 h-4" />
-                          <span>Account Settings</span>
+                          <span>تنظیمات حساب</span>
                         </Link>
                       </div>
                       <div className="border-t border-[var(--border)] py-1">
                         <button className="w-full flex items-center gap-2 px-4 py-2 hover:bg-[var(--card-darker)] text-left theme-transition">
                           <LogOut className="w-4 h-4" />
-                          <span>Logout</span>
+                          <span>خروج</span>
                         </button>
                       </div>
                     </>
