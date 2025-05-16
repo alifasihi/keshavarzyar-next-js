@@ -234,7 +234,7 @@ export default function Header() {
                         onClick={() => setIsProfileOpen(false)}
                       >
                         <LogOut className="w-4 h-4 transform rotate-180" />
-                        <span>Login</span>
+                        <span>ورود</span>
                       </Link>
                       <Link
                         href="/register"
@@ -242,7 +242,7 @@ export default function Header() {
                         onClick={() => setIsProfileOpen(false)}
                       >
                         <User className="w-4 h-4" />
-                        <span>Register</span>
+                        <span>ثبت نام</span>
                       </Link>
                     </div>
                   )}

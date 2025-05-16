@@ -98,7 +98,7 @@ export default function PistachioDetailPage({ params }: { params: Promise<{ id: 
           </div>
 
           <div className="border-t border-[#222c1d] pt-4">
-            <h3 className="font-medium mb-2">تعداد</h3>
+            <h3 className="font-medium mb-2">تعداد (کیلو گرم)</h3>
             <div className="flex items-center gap-4">
               <div className="flex items-center">
                 <button
