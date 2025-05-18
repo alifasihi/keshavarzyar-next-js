@@ -4,36 +4,36 @@ export const pistachios = [
     name: "پسته بادامی خام",
     description: "باریک و کشیده، با پوست روشن",
     price: 8390000, // Converted to number
-    image: "/image/Badami-Pistachio.png",
+    image: "/image/RawPistachioImages/Badami.png",
     rating: 4.9,
-    category: "پسته",
+    category: "RawPistachio",
   },
   {
     id: 2,
     name: "پسته اکبری دستچین خام",
     description: "کشیده‌ترین و لوکس‌ترین نوع پسته ایرانی",
     price: 16900000, // Converted to number
-    image: "/image/Akbari-Pistachio.png",
+    image: "/image/RawPistachioImages/Akbari.png",
     rating: 4.3,
-    category: "پسته",
+    category: "RawPistachio",
   },
   {
     id: 3,
     name: "پسته احمدآقایی دستچین درشت خام",
     description: "کشیده، پوست روشن، بسیار خوش‌طعم",
     price: 15600000, // Converted to number
-    image: "/image/Ahmad-Aghaei-Roasted-Pistachio.png",
+    image: "/image/RawPistachioImages/Ahmad-Aghaei.png",
     rating: 4.4,
-    category: "پسته",
+    category: "RawPistachio",
   },
   {
     id: 4,
     name: "پسته فندقی خام",
     description: "کوچک، گرد و اقتصادی؛ محبوب‌ترین نوع صادراتی",
     price: 9600000, // Converted to number
-    image: "/image/Fandoghi.webp",
+    image: "/image/RawPistachioImages/Fandoghi.webp",
     rating: 4.2,
-    category: "پسته",
+    category: "RawPistachio",
   },
   // {
   //   id: 5,

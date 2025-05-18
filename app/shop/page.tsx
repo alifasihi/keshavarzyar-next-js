@@ -12,14 +12,14 @@ export default function ShopPage() {
   const [searchTerm, setSearchTerm] = useState<string>("")
   const [showFilters, setShowFilters] = useState<boolean>(false)
 
-  const categories = ["all", "پسته", "tropical", "succulent", "flowering", "hanging"]
+  const categories = ["all", "RawPistachio", "tropical", "succulent", "flowering", "hanging"]
 
   // Update the category labels to Persian
   const categoriesWithLabels = categories.map((cat) => {
     switch (cat) {
       case "all":
         return { value: cat, label: "همه" }
-      case "pistachio":
+      case "RawPistachio":
         return { value: cat, label: "پسته" }
       case "tropical":
         return { value: cat, label: "گرمسیری" }

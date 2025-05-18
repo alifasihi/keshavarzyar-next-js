@@ -14,7 +14,7 @@ const pistachios = rawpistachios.map((pistachio) => ({
   price: typeof pistachio.price === "string" ? parseFloat(pistachio.price) : pistachio.price,
 }));
 import mainPic from "/public/image/main-pic.jpg"
-import AkbariPistachio from "/public/image/Akbari-Pistachio.png"
+import AkbariPistachio from "/public/image/RawPistachioImages/Akbari.png"
 import RandomUser from "@/components/ui/random-user"
 
 export default function Home() {
